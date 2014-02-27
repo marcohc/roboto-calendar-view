@@ -163,4 +163,4 @@ License
     See the License for the specific language governing permissions and
     limitations under the License.
 
-[1]: http://es.tinypic.com/r/25i3s6h/8
+[1]: http://i62.tinypic.com/kf1d05.jpg
