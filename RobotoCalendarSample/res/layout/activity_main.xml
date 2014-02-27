@@ -8,11 +8,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <es.disegnator.robotocalendar.RobotoCalendarView
+    <com.disegnator.robotocalendar.RobotoCalendarView
         android:id="@+id/robotoCalendarPicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-    </es.disegnator.robotocalendar.RobotoCalendarView>
+    </com.disegnator.robotocalendar.RobotoCalendarView>
 
     <Button
         android:id="@+id/markButton"

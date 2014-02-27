@@ -3,5 +3,9 @@
 
     <string name="app_name">Roboto Calendar Sample</string>
     <string name="action_settings">Settings</string>
+    <string name="monthTitleFont">roboto_condensed_bold</string>
+    <string name="dayOfWeekFont">roboto_condensed_bold</string>
+    <string name="dayOfMonthFont">roboto_regular</string>
+    <string name="currentDayOfMonthFont">roboto_condensed_bold</string>
 
 </resources>

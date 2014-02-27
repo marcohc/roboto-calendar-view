@@ -17,7 +17,7 @@
         android:layout_weight="1"
         android:tag="dayOfMonthContainer15" >
 
-        <es.disegnator.robotocalendar.font.RobotoTextView
+        <com.disegnator.robotocalendar.font.RobotoTextView
             android:id="@+id/dayOfMonthText15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
         android:layout_weight="1"
         android:tag="dayOfMonthContainer16" >
 
-        <es.disegnator.robotocalendar.font.RobotoTextView
+        <com.disegnator.robotocalendar.font.RobotoTextView
             android:id="@+id/dayOfMonthText16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
         android:layout_weight="1"
         android:tag="dayOfMonthContainer17" >
 
-        <es.disegnator.robotocalendar.font.RobotoTextView
+        <com.disegnator.robotocalendar.font.RobotoTextView
             android:id="@+id/dayOfMonthText17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -110,7 +110,7 @@
         android:layout_weight="1"
         android:tag="dayOfMonthContainer18" >
 
-        <es.disegnator.robotocalendar.font.RobotoTextView
+        <com.disegnator.robotocalendar.font.RobotoTextView
             android:id="@+id/dayOfMonthText18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -142,7 +142,7 @@
         android:layout_weight="1"
         android:tag="dayOfMonthContainer19" >
 
-        <es.disegnator.robotocalendar.font.RobotoTextView
+        <com.disegnator.robotocalendar.font.RobotoTextView
             android:id="@+id/dayOfMonthText19"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -173,7 +173,7 @@
         android:layout_weight="1"
         android:tag="dayOfMonthContainer20" >
 
-        <es.disegnator.robotocalendar.font.RobotoTextView
+        <com.disegnator.robotocalendar.font.RobotoTextView
             android:id="@+id/dayOfMonthText20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -204,7 +204,7 @@
         android:layout_weight="1"
         android:tag="dayOfMonthContainer21" >
 
-        <es.disegnator.robotocalendar.font.RobotoTextView
+        <com.disegnator.robotocalendar.font.RobotoTextView
             android:id="@+id/dayOfMonthText21"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

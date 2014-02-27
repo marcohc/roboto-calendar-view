@@ -13,12 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package es.disegnator.robotocalendar;
+package com.disegnator.robotocalendar;
 
 import java.text.DateFormatSymbols;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+
+import com.disegnator.robotocalendar.font.RobotoTypefaceManager;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -32,7 +34,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import es.disegnator.R;
-import es.disegnator.robotocalendar.font.RobotoTypefaceManager;
 
 /**
  * The roboto calendar view

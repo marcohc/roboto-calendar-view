@@ -9,7 +9,7 @@
     android:paddingBottom="@dimen/weekDaysPaddingBottom"
     android:weightSum="7" >
 
-    <es.disegnator.robotocalendar.font.RobotoTextView
+    <com.disegnator.robotocalendar.font.RobotoTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -20,7 +20,7 @@
         android:textSize="@dimen/dayOfWeekTextSize"
         custom:dayOfWeekFont="@string/dayOfWeekFont" />
 
-    <es.disegnator.robotocalendar.font.RobotoTextView
+    <com.disegnator.robotocalendar.font.RobotoTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -31,7 +31,7 @@
         android:textSize="@dimen/dayOfWeekTextSize"
         custom:dayOfWeekFont="@string/dayOfWeekFont" />
 
-    <es.disegnator.robotocalendar.font.RobotoTextView
+    <com.disegnator.robotocalendar.font.RobotoTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -42,7 +42,7 @@
         android:textSize="@dimen/dayOfWeekTextSize"
         custom:dayOfWeekFont="@string/dayOfWeekFont" />
 
-    <es.disegnator.robotocalendar.font.RobotoTextView
+    <com.disegnator.robotocalendar.font.RobotoTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -53,7 +53,7 @@
         android:textSize="@dimen/dayOfWeekTextSize"
         custom:dayOfWeekFont="@string/dayOfWeekFont" />
 
-    <es.disegnator.robotocalendar.font.RobotoTextView
+    <com.disegnator.robotocalendar.font.RobotoTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -64,7 +64,7 @@
         android:textSize="@dimen/dayOfWeekTextSize"
         custom:dayOfWeekFont="@string/dayOfWeekFont" />
 
-    <es.disegnator.robotocalendar.font.RobotoTextView
+    <com.disegnator.robotocalendar.font.RobotoTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -75,7 +75,7 @@
         android:textSize="@dimen/dayOfWeekTextSize"
         custom:dayOfWeekFont="@string/dayOfWeekFont" />
 
-    <es.disegnator.robotocalendar.font.RobotoTextView
+    <com.disegnator.robotocalendar.font.RobotoTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"

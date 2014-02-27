@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package es.disegnator.robotocalendarsample;
+package com.disegnator.robotocalendarsample;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -26,8 +26,11 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import es.disegnator.robotocalendar.RobotoCalendarView;
-import es.disegnator.robotocalendar.RobotoCalendarView.RobotoCalendarListener;
+
+import com.disegnator.robotocalendar.RobotoCalendarView;
+import com.disegnator.robotocalendar.RobotoCalendarView.RobotoCalendarListener;
+
+import com.disegnator.robotocalendarsample.R;
 
 /**
  * Sample Activity
