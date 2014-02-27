@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="monthTitleFont">roboto_light</string>
+    <string name="dayOfWeekFont">roboto_regular</string>
+    <string name="dayOfMonthFont">roboto_light</string>
+    <string name="currentDayOfMonthFont">roboto_condensed_bold</string>
+
+</resources>

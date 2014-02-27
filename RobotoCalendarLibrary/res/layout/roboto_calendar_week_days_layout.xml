@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/weekDaysPaddingBottom"
+    android:weightSum="7" >
+
+    <es.disegnator.robotocalendar.font.RobotoTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:tag="dayOfWeek1"
+        android:text="Lu"
+        android:textColor="@color/dayOfWeekColor"
+        android:textSize="@dimen/dayOfWeekTextSize"
+        custom:dayOfWeekFont="@string/dayOfWeekFont" />
+
+    <es.disegnator.robotocalendar.font.RobotoTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:tag="dayOfWeek2"
+        android:text="Ma"
+        android:textColor="@color/dayOfWeekColor"
+        android:textSize="@dimen/dayOfWeekTextSize"
+        custom:dayOfWeekFont="@string/dayOfWeekFont" />
+
+    <es.disegnator.robotocalendar.font.RobotoTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:tag="dayOfWeek3"
+        android:text="Mi"
+        android:textColor="@color/dayOfWeekColor"
+        android:textSize="@dimen/dayOfWeekTextSize"
+        custom:dayOfWeekFont="@string/dayOfWeekFont" />
+
+    <es.disegnator.robotocalendar.font.RobotoTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:tag="dayOfWeek4"
+        android:text="Ju"
+        android:textColor="@color/dayOfWeekColor"
+        android:textSize="@dimen/dayOfWeekTextSize"
+        custom:dayOfWeekFont="@string/dayOfWeekFont" />
+
+    <es.disegnator.robotocalendar.font.RobotoTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:tag="dayOfWeek5"
+        android:text="Vi"
+        android:textColor="@color/dayOfWeekColor"
+        android:textSize="@dimen/dayOfWeekTextSize"
+        custom:dayOfWeekFont="@string/dayOfWeekFont" />
+
+    <es.disegnator.robotocalendar.font.RobotoTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:tag="dayOfWeek6"
+        android:text="Sa"
+        android:textColor="@color/dayOfWeekColor"
+        android:textSize="@dimen/dayOfWeekTextSize"
+        custom:dayOfWeekFont="@string/dayOfWeekFont" />
+
+    <es.disegnator.robotocalendar.font.RobotoTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:tag="dayOfWeek7"
+        android:text="Do"
+        android:textColor="@color/dayOfWeekColor"
+        android:textSize="@dimen/dayOfWeekTextSize"
+        custom:dayOfWeekFont="@string/dayOfWeekFont" />
+
+</LinearLayout>

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:minHeight="@dimen/weekRowMinHeight"
+    android:orientation="horizontal"
+    android:tag="weekRow5"
+    android:weightSum="7" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:tag="dayOfMonthContainer29" >
+
+        <es.disegnator.robotocalendar.font.RobotoTextView
+            android:id="@+id/dayOfMonthText29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:minHeight="@dimen/dayOfMonthMinHeight"
+            android:minWidth="@dimen/dayOfMonthMinWidth"
+            android:paddingBottom="@dimen/dayOfMonthPaddingBottom"
+            android:tag="dayOfMonthText29"
+            android:text="29"
+            android:textSize="@dimen/dayOfMonthTextSize"
+            custom:font="roboto_light" />
+
+        <ImageView
+            android:layout_width="@dimen/dayOfMonthImageSize"
+            android:layout_height="@dimen/dayOfMonthImageSize"
+            
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dayOfMonthImageMarginTop" android:src="@drawable/blue_circle"
+            android:tag="dayOfMonthImage29" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:tag="dayOfMonthContainer30" >
+
+        <es.disegnator.robotocalendar.font.RobotoTextView
+            android:id="@+id/dayOfMonthText30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:minHeight="@dimen/dayOfMonthMinHeight"
+            android:minWidth="@dimen/dayOfMonthMinWidth"
+            android:paddingBottom="@dimen/dayOfMonthPaddingBottom"
+            android:tag="dayOfMonthText30"
+            android:text="30"
+            android:textSize="@dimen/dayOfMonthTextSize"
+            custom:font="roboto_light" />
+
+        <ImageView
+            android:layout_width="@dimen/dayOfMonthImageSize"
+            android:layout_height="@dimen/dayOfMonthImageSize"
+            
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dayOfMonthImageMarginTop" android:src="@drawable/blue_circle"
+            android:tag="dayOfMonthImage30" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:tag="dayOfMonthContainer31" >
+
+        <es.disegnator.robotocalendar.font.RobotoTextView
+            android:id="@+id/dayOfMonthText31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:minHeight="@dimen/dayOfMonthMinHeight"
+            android:minWidth="@dimen/dayOfMonthMinWidth"
+            android:paddingBottom="@dimen/dayOfMonthPaddingBottom"
+            android:tag="dayOfMonthText31"
+            android:text="31"
+            android:textSize="@dimen/dayOfMonthTextSize"
+            custom:font="roboto_light" />
+
+        <ImageView
+            android:layout_width="@dimen/dayOfMonthImageSize"
+            android:layout_height="@dimen/dayOfMonthImageSize"
+            
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dayOfMonthImageMarginTop" android:src="@drawable/blue_circle"
+            android:tag="dayOfMonthImage31" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:tag="dayOfMonthContainer32" >
+
+        <es.disegnator.robotocalendar.font.RobotoTextView
+            android:id="@+id/dayOfMonthText32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:minHeight="@dimen/dayOfMonthMinHeight"
+            android:minWidth="@dimen/dayOfMonthMinWidth"
+            android:paddingBottom="@dimen/dayOfMonthPaddingBottom"
+            android:tag="dayOfMonthText32"
+            android:text="32"
+            android:textSize="@dimen/dayOfMonthTextSize"
+            custom:font="roboto_light" />
+
+        <ImageView
+            android:layout_width="@dimen/dayOfMonthImageSize"
+            android:layout_height="@dimen/dayOfMonthImageSize"
+            
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dayOfMonthImageMarginTop" android:src="@drawable/blue_circle"
+            android:tag="dayOfMonthImage32" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:tag="dayOfMonthContainer33" >
+
+        <es.disegnator.robotocalendar.font.RobotoTextView
+            android:id="@+id/dayOfMonthText33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:minHeight="@dimen/dayOfMonthMinHeight"
+            android:minWidth="@dimen/dayOfMonthMinWidth"
+            android:paddingBottom="@dimen/dayOfMonthPaddingBottom"
+            android:tag="dayOfMonthText33"
+            android:text="33"
+            android:textSize="@dimen/dayOfMonthTextSize"
+            custom:font="roboto_light" />
+
+        <ImageView
+            android:layout_width="@dimen/dayOfMonthImageSize"
+            android:layout_height="@dimen/dayOfMonthImageSize"
+            
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dayOfMonthImageMarginTop" android:src="@drawable/blue_circle"
+            android:tag="dayOfMonthImage33" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:tag="dayOfMonthContainer34" >
+
+        <es.disegnator.robotocalendar.font.RobotoTextView
+            android:id="@+id/dayOfMonthText34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:minHeight="@dimen/dayOfMonthMinHeight"
+            android:minWidth="@dimen/dayOfMonthMinWidth"
+            android:paddingBottom="@dimen/dayOfMonthPaddingBottom"
+            android:tag="dayOfMonthText34"
+            android:text="34"
+            android:textSize="@dimen/dayOfMonthTextSize"
+            custom:font="roboto_light" />
+
+        <ImageView
+            android:layout_width="@dimen/dayOfMonthImageSize"
+            android:layout_height="@dimen/dayOfMonthImageSize"
+            
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dayOfMonthImageMarginTop" android:src="@drawable/blue_circle"
+            android:tag="dayOfMonthImage34" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:tag="dayOfMonthContainer35" >
+
+        <es.disegnator.robotocalendar.font.RobotoTextView
+            android:id="@+id/dayOfMonthText35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:minHeight="@dimen/dayOfMonthMinHeight"
+            android:minWidth="@dimen/dayOfMonthMinWidth"
+            android:paddingBottom="@dimen/dayOfMonthPaddingBottom"
+            android:tag="dayOfMonthText35"
+            android:text="35"
+            android:textSize="@dimen/dayOfMonthTextSize"
+            custom:font="roboto_light" />
+
+        <ImageView
+            android:layout_width="@dimen/dayOfMonthImageSize"
+            android:layout_height="@dimen/dayOfMonthImageSize"
+            
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dayOfMonthImageMarginTop" android:src="@drawable/blue_circle"
+            android:tag="dayOfMonthImage35" />
+    </RelativeLayout>
+
+</LinearLayout>
