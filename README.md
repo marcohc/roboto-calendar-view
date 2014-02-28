@@ -144,7 +144,11 @@ These fonts are availables:
 Developed By
 ------------
 * Marco Hernaiz Cao - <marcohernaizcao@gmail.com>
+ 
+Credits
+-------
 
+ * [johnkil][2] - Author of [Android-RobotoTextView][3], a simple and useful library to use the Roboto font in your components. 
 
 License
 -------
@@ -164,3 +168,5 @@ License
     limitations under the License.
 
 [1]: http://i62.tinypic.com/kf1d05.jpg
+[2]: https://github.com/johnkil
+[3]: https://github.com/johnkil/Android-RobotoTextView
