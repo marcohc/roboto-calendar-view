@@ -6,6 +6,6 @@
         android:height="35dp"
         android:width="35dp" />
 
-    <solid android:color="@color/red" />
+    <solid android:color="@color/alert_circle" />
 
 </shape>

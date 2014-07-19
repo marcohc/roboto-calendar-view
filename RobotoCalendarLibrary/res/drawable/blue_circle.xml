@@ -6,6 +6,6 @@
         android:height="35dp"
         android:width="35dp" />
 
-    <solid android:color="@color/blue" />
+    <solid android:color="@color/info_cirle" />
 
 </shape>

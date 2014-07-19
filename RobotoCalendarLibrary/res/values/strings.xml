@@ -4,6 +4,6 @@
     <string name="monthTitleFont">roboto_light</string>
     <string name="dayOfWeekFont">roboto_regular</string>
     <string name="dayOfMonthFont">roboto_light</string>
-    <string name="currentDayOfMonthFont">roboto_condensed_bold</string>
+    <string name="currentDayOfMonthFont">roboto_light</string>
 
 </resources>

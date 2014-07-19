@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/calendarBackgroundColor"
     android:orientation="vertical" >
 
     <include
@@ -54,10 +55,9 @@
             layout="@layout/roboto_calendar_week_6" />
     </LinearLayout>
 
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="1dp"
-        android:background="@drawable/horizontal_line_with_gradient" >
-    </View>
+<!--     <View -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:layout_height="1dp" -->
+<!--         android:background="@drawable/horizontal_line_with_gradient" /> -->
 
 </LinearLayout>

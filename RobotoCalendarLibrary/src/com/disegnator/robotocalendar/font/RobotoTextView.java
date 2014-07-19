@@ -20,7 +20,8 @@ import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import es.disegnator.R;
+
+import com.disegnator.robotocalendarlibrary.R;
 
 /**
  * Implementation of a {@link TextView} with native support for all the Roboto

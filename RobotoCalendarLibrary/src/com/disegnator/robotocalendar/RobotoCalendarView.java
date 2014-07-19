@@ -20,8 +20,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-import com.disegnator.robotocalendar.font.RobotoTypefaceManager;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -33,7 +31,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import es.disegnator.R;
+
+import com.disegnator.robotocalendar.font.RobotoTypefaceManager;
+import com.disegnator.robotocalendarlibrary.R;
 
 /**
  * The roboto calendar view
@@ -183,7 +183,12 @@ public class RobotoCalendarView extends LinearLayout {
 		for (int i = 1; i < weekDaysArray.length; i++) {
 			dayOfWeek = (TextView) view.findViewWithTag("dayOfWeek" + getWeekIndex(i, currentCalendar));
 			dayOfTheWeekString = weekDaysArray[i];
-			dayOfTheWeekString = dayOfTheWeekString.substring(0, 1).toUpperCase() + dayOfTheWeekString.subSequence(1, 2);
+			
+			// Check it for languages with only one week day lenght
+			if(dayOfTheWeekString.length() > 1) {
+			    dayOfTheWeekString = dayOfTheWeekString.substring(0, 1).toUpperCase() + dayOfTheWeekString.subSequence(1, 2);
+			}
+			
 			dayOfWeek.setText(dayOfTheWeekString);
 
 			// Apply styles

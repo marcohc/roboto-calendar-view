@@ -6,6 +6,6 @@
         android:height="35dp"
         android:width="35dp" />
 
-    <solid android:color="@color/green" />
+    <solid android:color="@color/confirm_circle" />
 
 </shape>
