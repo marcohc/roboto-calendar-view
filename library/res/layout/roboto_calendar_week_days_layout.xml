@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center"
+              android:orientation="horizontal"
+              android:weightSum="7">
+
+    <TextView
+        style="@style/DayOfTheWeek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:tag="dayOfWeek1"
+        android:text="L"
+        android:textColor="@color/day_of_week_color"
+        />
+
+    <TextView
+        style="@style/DayOfTheWeek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:tag="dayOfWeek2"
+        android:text="M"
+        android:textColor="@color/day_of_week_color"
+        />
+
+    <TextView
+        style="@style/DayOfTheWeek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:tag="dayOfWeek3"
+        android:text="X"
+        android:textColor="@color/day_of_week_color"
+        />
+
+    <TextView
+        style="@style/DayOfTheWeek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:tag="dayOfWeek4"
+        android:text="J"
+        android:textColor="@color/day_of_week_color"
+        />
+
+    <TextView
+        style="@style/DayOfTheWeek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:tag="dayOfWeek5"
+        android:text="V"
+        android:textColor="@color/day_of_week_color"
+        />
+
+    <TextView
+        style="@style/DayOfTheWeek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:tag="dayOfWeek6"
+        android:text="S"
+        android:textColor="@color/day_of_week_color"
+        />
+
+    <TextView
+        style="@style/DayOfTheWeek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:tag="dayOfWeek7"
+        android:text="D"
+        android:textColor="@color/day_of_week_color"
+        />
+
+</LinearLayout>

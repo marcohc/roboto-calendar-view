@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- General -->
+    <color name="line">#CC0000</color>
+    <color name="ring">#669900</color>
+    <color name="circle">#e6e7e8</color>
+    <color name="calendar_background">#FFFFFF</color>
+
+    <!-- General -->
+    <color name="green">#339DB5</color>
+    <color name="red">#e98885</color>
+    <color name="blue">#55c6da</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <!-- Fonts -->
+    <color name="month_title">#2A99BC</color>
+    <color name="day_of_week_color">#161d20</color>
+    <color name="day_of_month">#849ba9</color>
+    <color name="current_day_of_month">#33b5e5</color>
+    <color name="currentDayOfMonthSelectorColor">#33b5e5</color>
+
+</resources>

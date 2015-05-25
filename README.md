@@ -1,159 +1,62 @@
 Roboto Calendar View
 ==============
 
-Android Roboto Calendar View provides an easy and customizable calendar view with native support for the [Roboto](http://developer.android.com/design/style/typography.html) fonts, includes the brand new [Roboto Slab](http://www.google.com/fonts/specimen/Roboto+Slab) fonts.
+Android Roboto Calendar View provides an easy and customizable calendar view using the awesome library [Calligraphy](https://github.com/chrisjenx/Calligraphy) for fonts
 
 Sample
 ------
 
-Application is available on Google Play:
+A sample application is available inside of the library
 
-<a href="https://play.google.com/store/apps/details?id=com.disegnator.robotocalendarsample">
-  <img alt="Get it on Google Play"
-     src="http://www.android.com/images/brand/get_it_on_play_logo_small.png" />
-</a>
-
-![screenshot][1]
-
+![screenshot](http://i61.tinypic.com/2i9jy3q.png)
 
 Compatibility
 -------------
 
-This library is compatible from API 3 (Android 1.5).
-
+This library is compatible from API 7.
 
 Usage
 -----
 
-Sample layout with RobotoTextView:
+Take a look of the sample Activity.
+
+Override styles for fonts, sizes and color modifications.
+
+Gradle
+------
+
+RobotoCalendarView uses the awesome tool [Jitpack] (https://jitpack.io/)
+
+Add the repository to your general build.gradle:
 
 ``` xml
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity" >
-
-    <com.disegnator.robotocalendar.RobotoCalendarView
-        android:id="@+id/robotoCalendarPicker"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    </com.disegnator.robotocalendar.RobotoCalendarView>
-
-</RelativeLayout>
+repositories {
+	    maven {
+	        url "https://jitpack.io"
+	    }
+	}
 ```
 
-Sample activity with RobotoTextView:
+And then add the library in your specific project build.gradle:
 
+``` xml
+    compile 'com.github.marcohc:robotocalendarview:<last_commit_hash_key>'
 ```
-public class MainActivity extends Activity implements RobotoCalendarListener {
-
-	private RobotoCalendarView robotoCalendarView;
-	private Calendar currentCalendar;
-	private int currentMonthIndex;
-
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-
-		// Gets the calendar from the view
-		robotoCalendarView = (RobotoCalendarView) findViewById(R.id.robotoCalendarPicker);
-
-		// Set listener, in this case, the same activity
-		robotoCalendarView.setRobotoCalendarListener(this);
-
-		// Initialize the RobotoCalendarPicker with the current index and date
-		currentMonthIndex = 0;
-		currentCalendar = Calendar.getInstance(Locale.getDefault());
-		robotoCalendarView.initializeCalendar(currentCalendar);
-
-		// Mark current day
-		robotoCalendarView.markDayAsCurrentDay(currentCalendar.getTime());
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-
-	@Override
-	public void onDateSelected(Date date) {
-
-		// Mark calendar day
-		robotoCalendarView.markDayAsSelectedDay(date);
-
-		// Do your own stuff
-		// ...
-	}
-
-	@Override
-	public void onRightButtonClick() {
-		currentMonthIndex++;
-		updateCalendar();
-	}
-
-	@Override
-	public void onLeftButtonClick() {
-		currentMonthIndex--;
-		updateCalendar();
-	}
-
-	private void updateCalendar() {
-		currentCalendar = Calendar.getInstance(Locale.getDefault());
-		currentCalendar.add(Calendar.MONTH, currentMonthIndex);
-		robotoCalendarView.initializeCalendar(currentCalendar);
-	}
-
-}
-```
-
-Override dimens.xml, colors.xml and strings.xml to modify styles.
-
-These fonts are availables:
-
-* roboto_thin
-* roboto_thin_italic
-* roboto_light
-* roboto_light_italic
-* roboto_regular
-* roboto_italic
-* roboto_medium
-* roboto_medium_italic
-* roboto_bold
-* roboto_bold_italic
-* roboto_black
-* roboto_black_italic
-* roboto_condensed_light
-* roboto_condensed_light_italic
-* roboto_condensed_regular
-* roboto_condensed_italic
-* roboto_condensed_bold
-* roboto_condensed_bold_italic
-* roboto_slab_thin
-* roboto_slab_light
-* roboto_slab_regular
-* roboto_slab_bold
-
 
 Developed By
 ------------
+
 * Marco Hernaiz Cao - <marcohernaizcao@gmail.com>
  
 Credits
 -------
 
- * [johnkil][2] - Author of [Android-RobotoTextView][3], a simple and useful library to use the Roboto font in your components. 
+ * [Calligraphy](https://github.com/chrisjenx/Calligraphy)
 
 License
 -------
 
-    Copyright 2014 Marco Hernaiz Cao
+    Copyright 2015 Marco Hernaiz Cao
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -166,7 +69,3 @@ License
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-
-[1]: http://i62.tinypic.com/kf1d05.jpg
-[2]: https://github.com/johnkil
-[3]: https://github.com/johnkil/Android-RobotoTextView

@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:orientation="horizontal"
+    android:tag="weekRow5"
+    android:weightSum="7">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:tag="dayOfMonthContainer29">
+
+        <RelativeLayout
+            android:layout_width="@dimen/day_of_month_background_size"
+            android:layout_height="@dimen/day_of_month_background_size"
+            android:layout_centerInParent="true"
+            android:tag="dayOfMonthBackground29" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/DayOfTheMonth"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:tag="dayOfMonthText29"
+                android:text="29" />
+
+            <View
+                android:layout_width="@dimen/underline_weight"
+                android:layout_height="@dimen/underline_height"
+                android:background="@color/blue"
+                android:tag="firstUnderlineView29" />
+
+            <View
+                android:layout_width="@dimen/underline_weight"
+                android:layout_height="@dimen/underline_height"
+                android:layout_marginTop="1dp"
+                android:background="@color/red"
+                android:tag="secondUnderlineView29" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:tag="dayOfMonthContainer30">
+
+        <RelativeLayout
+            android:layout_width="@dimen/day_of_month_background_size"
+            android:layout_height="@dimen/day_of_month_background_size"
+            android:layout_centerInParent="true"
+            android:tag="dayOfMonthBackground30" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/DayOfTheMonth"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:tag="dayOfMonthText30"
+                android:text="30" />
+
+            <View
+                android:layout_width="@dimen/underline_weight"
+                android:layout_height="@dimen/underline_height"
+                android:background="@color/blue"
+                android:tag="firstUnderlineView30" />
+
+            <View
+                android:layout_width="@dimen/underline_weight"
+                android:layout_height="@dimen/underline_height"
+                android:layout_marginTop="1dp"
+                android:background="@color/red"
+                android:tag="secondUnderlineView30" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:tag="dayOfMonthContainer31">
+
+        <RelativeLayout
+            android:layout_width="@dimen/day_of_month_background_size"
+            android:layout_height="@dimen/day_of_month_background_size"
+            android:layout_centerInParent="true"
+            android:tag="dayOfMonthBackground31" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/DayOfTheMonth"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:tag="dayOfMonthText31"
+                android:text="31" />
+
+            <View
+                android:layout_width="@dimen/underline_weight"
+                android:layout_height="@dimen/underline_height"
+                android:background="@color/blue"
+                android:tag="firstUnderlineView31" />
+
+            <View
+                android:layout_width="@dimen/underline_weight"
+                android:layout_height="@dimen/underline_height"
+                android:layout_marginTop="1dp"
+                android:background="@color/red"
+                android:tag="secondUnderlineView31" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:tag="dayOfMonthContainer32">
+
+        <RelativeLayout
+            android:layout_width="@dimen/day_of_month_background_size"
+            android:layout_height="@dimen/day_of_month_background_size"
+            android:layout_centerInParent="true"
+            android:tag="dayOfMonthBackground32" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/DayOfTheMonth"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:tag="dayOfMonthText32"
+                android:text="32" />
+
+            <View
+                android:layout_width="@dimen/underline_weight"
+                android:layout_height="@dimen/underline_height"
+                android:background="@color/blue"
+                android:tag="firstUnderlineView32" />
+
+            <View
+                android:layout_width="@dimen/underline_weight"
+                android:layout_height="@dimen/underline_height"
+                android:layout_marginTop="1dp"
+                android:background="@color/red"
+                android:tag="secondUnderlineView32" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:tag="dayOfMonthContainer33">
+
+        <RelativeLayout
+            android:layout_width="@dimen/day_of_month_background_size"
+            android:layout_height="@dimen/day_of_month_background_size"
+            android:layout_centerInParent="true"
+            android:tag="dayOfMonthBackground33" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/DayOfTheMonth"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:tag="dayOfMonthText33"
+                android:text="33" />
+
+            <View
+                android:layout_width="@dimen/underline_weight"
+                android:layout_height="@dimen/underline_height"
+                android:background="@color/blue"
+                android:tag="firstUnderlineView33" />
+
+            <View
+                android:layout_width="@dimen/underline_weight"
+                android:layout_height="@dimen/underline_height"
+                android:layout_marginTop="1dp"
+                android:background="@color/red"
+                android:tag="secondUnderlineView33" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:tag="dayOfMonthContainer34">
+
+        <RelativeLayout
+            android:layout_width="@dimen/day_of_month_background_size"
+            android:layout_height="@dimen/day_of_month_background_size"
+            android:layout_centerInParent="true"
+            android:tag="dayOfMonthBackground34" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/DayOfTheMonth"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:tag="dayOfMonthText34"
+                android:text="34" />
+
+            <View
+                android:layout_width="@dimen/underline_weight"
+                android:layout_height="@dimen/underline_height"
+                android:background="@color/blue"
+                android:tag="firstUnderlineView34" />
+
+            <View
+                android:layout_width="@dimen/underline_weight"
+                android:layout_height="@dimen/underline_height"
+                android:layout_marginTop="1dp"
+                android:background="@color/red"
+                android:tag="secondUnderlineView34" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:tag="dayOfMonthContainer35">
+
+        <RelativeLayout
+            android:layout_width="@dimen/day_of_month_background_size"
+            android:layout_height="@dimen/day_of_month_background_size"
+            android:layout_centerInParent="true"
+            android:tag="dayOfMonthBackground35" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/DayOfTheMonth"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:tag="dayOfMonthText35"
+                android:text="35" />
+
+            <View
+                android:layout_width="@dimen/underline_weight"
+                android:layout_height="@dimen/underline_height"
+                android:background="@color/blue"
+                android:tag="firstUnderlineView35" />
+
+            <View
+                android:layout_width="@dimen/underline_weight"
+                android:layout_height="@dimen/underline_height"
+                android:layout_marginTop="1dp"
+                android:background="@color/red"
+                android:tag="secondUnderlineView35" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>
