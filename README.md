@@ -40,7 +40,7 @@ repositories {
 And then add the library in your specific project build.gradle:
 
 ``` xml
-    compile 'com.github.marcohc:robotocalendarview:<last_commit_hash_key>'
+    compile 'com.github.marcohc:robotocalendarview:1.1.0'
 ```
 
 Developed By
