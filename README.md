@@ -46,7 +46,7 @@ And then add the library in your specific project build.gradle:
 Developed By
 ------------
 
-* Marco Hernaiz Cao - <marcohernaizcao@gmail.com>
+* Marco Hernaiz Cao - <marco.hernaiz.cao@gmail.com>
  
 Credits
 -------
