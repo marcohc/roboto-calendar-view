@@ -1,17 +1,35 @@
 buildscript {
+
     repositories {
         jcenter()
         mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.2.3'
+        classpath 'com.android.tools.build:gradle:1.3.1'
     }
 }
 
 allprojects {
+
+    ext {
+        androidApplicationId = 'com.marcohc.robotocalendar'
+        androidBuildToolsVersion = "23.0.1"
+        androidMinSdkVersion = 11
+        androidTargetSdkVersion = 23
+        androidCompileSdkVersion = 23
+        androidVersionCode = 1
+        androidVersionName = "1.2.0"
+    }
+
     repositories {
         jcenter()
         mavenCentral()
+        maven { url "https://jitpack.io" }
     }
+}
+
+task wrapper(type: Wrapper) {
+    description 'Creates the gradle wrapper.'
+    gradleVersion '2.6'
 }

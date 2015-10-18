@@ -13,14 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.marcohc.robotocalendarsample;
+package com.marcohc.robotocalendar.sample;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.marcohc.robotocalendar.RobotoCalendarView;
 import com.marcohc.robotocalendar.RobotoCalendarView.RobotoCalendarListener;
+import com.marcohc.robotocalendarsample.R;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -34,7 +35,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
  *
  * @author Marco Hernaiz Cao
  */
-public class MainActivity extends Activity implements RobotoCalendarListener {
+public class MainActivity extends AppCompatActivity implements RobotoCalendarListener {
 
     private RobotoCalendarView robotoCalendarView;
     private int currentMonthIndex;
