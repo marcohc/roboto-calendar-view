@@ -6,7 +6,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.3.1'
+        classpath 'com.android.tools.build:gradle:1.5.0'
     }
 }
 
@@ -14,12 +14,12 @@ allprojects {
 
     ext {
         androidApplicationId = 'com.marcohc.robotocalendar'
-        androidBuildToolsVersion = "23.0.1"
+        androidBuildToolsVersion = "23.0.2"
         androidMinSdkVersion = 11
         androidTargetSdkVersion = 23
         androidCompileSdkVersion = 23
         androidVersionCode = 1
-        androidVersionName = "1.2.0"
+        androidVersionName = "1.2.1"
     }
 
     repositories {
@@ -31,5 +31,5 @@ allprojects {
 
 task wrapper(type: Wrapper) {
     description 'Creates the gradle wrapper.'
-    gradleVersion '2.6'
+    gradleVersion '2.8'
 }

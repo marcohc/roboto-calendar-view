@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="RobotoCalendarView">
-        <attr name="monthTitleColor" format="color" />
-        <attr name="monthTitleFont" format="string" />
-        <attr name="dayOfWeekColor" format="color" />
-        <attr name="dayOfWeekFont" format="string" />
-        <attr name="dayOfMonthColor" format="color" />
-        <attr name="dayOfMonthFont" format="string" />
-    </declare-styleable>
     <declare-styleable name="RobotoTextView">
         <attr name="font" />
     </declare-styleable>
+
     <declare-styleable name="RobotoFonts">
         <attr name="font" format="enum">
             <enum name="roboto_thin" value="0" />

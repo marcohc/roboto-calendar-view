@@ -8,20 +8,20 @@
     </style>
 
     <style name="MonthTitle">
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/month_title</item>
+        <item name="android:textSize">@dimen/roboto_calendar_date_title_font</item>
+        <item name="android:textColor">@color/roboto_calendar_date_title</item>
         <item name="fontPath">fonts/Roboto-Regular.ttf</item>
     </style>
 
     <style name="DayOfTheWeek">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/day_of_month</item>
+        <item name="android:textSize">@dimen/roboto_calendar_day_of_week_font</item>
+        <item name="android:textColor">@color/roboto_calendar_day_of_month</item>
         <item name="fontPath">fonts/Roboto-Regular.ttf</item>
     </style>
 
     <style name="DayOfTheMonth">
         <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/day_of_month</item>
+        <item name="android:textColor">@color/roboto_calendar_day_of_month</item>
         <item name="fontPath">fonts/Roboto-Light.ttf</item>
     </style>
 

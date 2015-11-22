@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:baselineAligned="false"
@@ -16,8 +15,8 @@
         android:tag="dayOfMonthContainer29">
 
         <RelativeLayout
-            android:layout_width="@dimen/day_of_month_background_size"
-            android:layout_height="@dimen/day_of_month_background_size"
+            android:layout_width="@dimen/roboto_calendar_day_of_month_background_size"
+            android:layout_height="@dimen/roboto_calendar_day_of_month_background_size"
             android:layout_centerInParent="true"
             android:tag="dayOfMonthBackground29" />
 
@@ -38,16 +37,16 @@
                 android:text="29" />
 
             <View
-                android:layout_width="@dimen/underline_weight"
-                android:layout_height="@dimen/underline_height"
-                android:background="@color/blue"
+                android:layout_width="@dimen/roboto_calendar_underline_weight"
+                android:layout_height="@dimen/roboto_calendar_underline_height"
+                android:background="@color/roboto_calendar_blue"
                 android:tag="firstUnderlineView29" />
 
             <View
-                android:layout_width="@dimen/underline_weight"
-                android:layout_height="@dimen/underline_height"
+                android:layout_width="@dimen/roboto_calendar_underline_weight"
+                android:layout_height="@dimen/roboto_calendar_underline_height"
                 android:layout_marginTop="1dp"
-                android:background="@color/red"
+                android:background="@color/roboto_calendar_red"
                 android:tag="secondUnderlineView29" />
         </LinearLayout>
     </RelativeLayout>
@@ -60,8 +59,8 @@
         android:tag="dayOfMonthContainer30">
 
         <RelativeLayout
-            android:layout_width="@dimen/day_of_month_background_size"
-            android:layout_height="@dimen/day_of_month_background_size"
+            android:layout_width="@dimen/roboto_calendar_day_of_month_background_size"
+            android:layout_height="@dimen/roboto_calendar_day_of_month_background_size"
             android:layout_centerInParent="true"
             android:tag="dayOfMonthBackground30" />
 
@@ -82,16 +81,16 @@
                 android:text="30" />
 
             <View
-                android:layout_width="@dimen/underline_weight"
-                android:layout_height="@dimen/underline_height"
-                android:background="@color/blue"
+                android:layout_width="@dimen/roboto_calendar_underline_weight"
+                android:layout_height="@dimen/roboto_calendar_underline_height"
+                android:background="@color/roboto_calendar_blue"
                 android:tag="firstUnderlineView30" />
 
             <View
-                android:layout_width="@dimen/underline_weight"
-                android:layout_height="@dimen/underline_height"
+                android:layout_width="@dimen/roboto_calendar_underline_weight"
+                android:layout_height="@dimen/roboto_calendar_underline_height"
                 android:layout_marginTop="1dp"
-                android:background="@color/red"
+                android:background="@color/roboto_calendar_red"
                 android:tag="secondUnderlineView30" />
         </LinearLayout>
     </RelativeLayout>
@@ -104,8 +103,8 @@
         android:tag="dayOfMonthContainer31">
 
         <RelativeLayout
-            android:layout_width="@dimen/day_of_month_background_size"
-            android:layout_height="@dimen/day_of_month_background_size"
+            android:layout_width="@dimen/roboto_calendar_day_of_month_background_size"
+            android:layout_height="@dimen/roboto_calendar_day_of_month_background_size"
             android:layout_centerInParent="true"
             android:tag="dayOfMonthBackground31" />
 
@@ -126,16 +125,16 @@
                 android:text="31" />
 
             <View
-                android:layout_width="@dimen/underline_weight"
-                android:layout_height="@dimen/underline_height"
-                android:background="@color/blue"
+                android:layout_width="@dimen/roboto_calendar_underline_weight"
+                android:layout_height="@dimen/roboto_calendar_underline_height"
+                android:background="@color/roboto_calendar_blue"
                 android:tag="firstUnderlineView31" />
 
             <View
-                android:layout_width="@dimen/underline_weight"
-                android:layout_height="@dimen/underline_height"
+                android:layout_width="@dimen/roboto_calendar_underline_weight"
+                android:layout_height="@dimen/roboto_calendar_underline_height"
                 android:layout_marginTop="1dp"
-                android:background="@color/red"
+                android:background="@color/roboto_calendar_red"
                 android:tag="secondUnderlineView31" />
         </LinearLayout>
     </RelativeLayout>
@@ -148,8 +147,8 @@
         android:tag="dayOfMonthContainer32">
 
         <RelativeLayout
-            android:layout_width="@dimen/day_of_month_background_size"
-            android:layout_height="@dimen/day_of_month_background_size"
+            android:layout_width="@dimen/roboto_calendar_day_of_month_background_size"
+            android:layout_height="@dimen/roboto_calendar_day_of_month_background_size"
             android:layout_centerInParent="true"
             android:tag="dayOfMonthBackground32" />
 
@@ -170,16 +169,16 @@
                 android:text="32" />
 
             <View
-                android:layout_width="@dimen/underline_weight"
-                android:layout_height="@dimen/underline_height"
-                android:background="@color/blue"
+                android:layout_width="@dimen/roboto_calendar_underline_weight"
+                android:layout_height="@dimen/roboto_calendar_underline_height"
+                android:background="@color/roboto_calendar_blue"
                 android:tag="firstUnderlineView32" />
 
             <View
-                android:layout_width="@dimen/underline_weight"
-                android:layout_height="@dimen/underline_height"
+                android:layout_width="@dimen/roboto_calendar_underline_weight"
+                android:layout_height="@dimen/roboto_calendar_underline_height"
                 android:layout_marginTop="1dp"
-                android:background="@color/red"
+                android:background="@color/roboto_calendar_red"
                 android:tag="secondUnderlineView32" />
         </LinearLayout>
     </RelativeLayout>
@@ -192,8 +191,8 @@
         android:tag="dayOfMonthContainer33">
 
         <RelativeLayout
-            android:layout_width="@dimen/day_of_month_background_size"
-            android:layout_height="@dimen/day_of_month_background_size"
+            android:layout_width="@dimen/roboto_calendar_day_of_month_background_size"
+            android:layout_height="@dimen/roboto_calendar_day_of_month_background_size"
             android:layout_centerInParent="true"
             android:tag="dayOfMonthBackground33" />
 
@@ -214,16 +213,16 @@
                 android:text="33" />
 
             <View
-                android:layout_width="@dimen/underline_weight"
-                android:layout_height="@dimen/underline_height"
-                android:background="@color/blue"
+                android:layout_width="@dimen/roboto_calendar_underline_weight"
+                android:layout_height="@dimen/roboto_calendar_underline_height"
+                android:background="@color/roboto_calendar_blue"
                 android:tag="firstUnderlineView33" />
 
             <View
-                android:layout_width="@dimen/underline_weight"
-                android:layout_height="@dimen/underline_height"
+                android:layout_width="@dimen/roboto_calendar_underline_weight"
+                android:layout_height="@dimen/roboto_calendar_underline_height"
                 android:layout_marginTop="1dp"
-                android:background="@color/red"
+                android:background="@color/roboto_calendar_red"
                 android:tag="secondUnderlineView33" />
         </LinearLayout>
     </RelativeLayout>
@@ -236,8 +235,8 @@
         android:tag="dayOfMonthContainer34">
 
         <RelativeLayout
-            android:layout_width="@dimen/day_of_month_background_size"
-            android:layout_height="@dimen/day_of_month_background_size"
+            android:layout_width="@dimen/roboto_calendar_day_of_month_background_size"
+            android:layout_height="@dimen/roboto_calendar_day_of_month_background_size"
             android:layout_centerInParent="true"
             android:tag="dayOfMonthBackground34" />
 
@@ -258,16 +257,16 @@
                 android:text="34" />
 
             <View
-                android:layout_width="@dimen/underline_weight"
-                android:layout_height="@dimen/underline_height"
-                android:background="@color/blue"
+                android:layout_width="@dimen/roboto_calendar_underline_weight"
+                android:layout_height="@dimen/roboto_calendar_underline_height"
+                android:background="@color/roboto_calendar_blue"
                 android:tag="firstUnderlineView34" />
 
             <View
-                android:layout_width="@dimen/underline_weight"
-                android:layout_height="@dimen/underline_height"
+                android:layout_width="@dimen/roboto_calendar_underline_weight"
+                android:layout_height="@dimen/roboto_calendar_underline_height"
                 android:layout_marginTop="1dp"
-                android:background="@color/red"
+                android:background="@color/roboto_calendar_red"
                 android:tag="secondUnderlineView34" />
         </LinearLayout>
     </RelativeLayout>
@@ -280,8 +279,8 @@
         android:tag="dayOfMonthContainer35">
 
         <RelativeLayout
-            android:layout_width="@dimen/day_of_month_background_size"
-            android:layout_height="@dimen/day_of_month_background_size"
+            android:layout_width="@dimen/roboto_calendar_day_of_month_background_size"
+            android:layout_height="@dimen/roboto_calendar_day_of_month_background_size"
             android:layout_centerInParent="true"
             android:tag="dayOfMonthBackground35" />
 
@@ -302,16 +301,16 @@
                 android:text="35" />
 
             <View
-                android:layout_width="@dimen/underline_weight"
-                android:layout_height="@dimen/underline_height"
-                android:background="@color/blue"
+                android:layout_width="@dimen/roboto_calendar_underline_weight"
+                android:layout_height="@dimen/roboto_calendar_underline_height"
+                android:background="@color/roboto_calendar_blue"
                 android:tag="firstUnderlineView35" />
 
             <View
-                android:layout_width="@dimen/underline_weight"
-                android:layout_height="@dimen/underline_height"
+                android:layout_width="@dimen/roboto_calendar_underline_weight"
+                android:layout_height="@dimen/roboto_calendar_underline_height"
                 android:layout_marginTop="1dp"
-                android:background="@color/red"
+                android:background="@color/roboto_calendar_red"
                 android:tag="secondUnderlineView35" />
         </LinearLayout>
     </RelativeLayout>

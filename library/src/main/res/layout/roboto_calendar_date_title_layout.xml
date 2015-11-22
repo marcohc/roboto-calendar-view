@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:paddingBottom="@dimen/dateTitlePaddingBottom">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:paddingBottom="@dimen/roboto_calendar_date_title_padding_bottom">
 
     <ImageView
         android:id="@+id/leftButton"
@@ -13,8 +12,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="false"
         android:layout_centerVertical="true"
-        android:paddingLeft="@dimen/padding"
-        android:src="@drawable/arrow_blue_left_selector"/>
+        android:paddingLeft="@dimen/roboto_calendar_padding"
+        android:src="@drawable/arrow_blue_left_selector" />
 
     <TextView
         android:id="@+id/dateTitle"
@@ -25,7 +24,7 @@
         android:layout_centerInParent="true"
         android:tag="dateTitle"
         android:text="MONTH 2014"
-        android:textAllCaps="true"/>
+        android:textAllCaps="true" />
 
     <ImageView
         android:id="@+id/rightButton"
@@ -34,7 +33,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="false"
         android:layout_centerVertical="true"
-        android:paddingRight="@dimen/padding"
-        android:src="@drawable/arrow_blue_right_selector"/>
+        android:paddingRight="@dimen/roboto_calendar_padding"
+        android:src="@drawable/arrow_blue_right_selector" />
 
 </RelativeLayout>
