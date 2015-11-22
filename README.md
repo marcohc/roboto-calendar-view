@@ -13,7 +13,7 @@ A sample application is available inside of the library
 Compatibility
 -------------
 
-This library is compatible from API 7.
+This library is compatible from API 11.
 
 Usage
 -----
@@ -25,7 +25,7 @@ Override styles for fonts, sizes and color modifications.
 Gradle
 ------
 
-RobotoCalendarView uses the awesome tool [Jitpack] (https://jitpack.io/)
+RobotoCalendarView uses the awesome tool [Jitpack] (https://jitpack.io/#marcohc/robotocalendarview)
 
 Add the repository to your general build.gradle:
 
