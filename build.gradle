@@ -6,7 +6,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.5.0'
+        classpath 'com.android.tools.build:gradle:2.0.0-alpha5'
     }
 }
 
@@ -19,7 +19,7 @@ allprojects {
         androidTargetSdkVersion = 23
         androidCompileSdkVersion = 23
         androidVersionCode = 1
-        androidVersionName = "1.2.1"
+        androidVersionName = "1.2.1.1"
     }
 
     repositories {
@@ -27,9 +27,4 @@ allprojects {
         mavenCentral()
         maven { url "https://jitpack.io" }
     }
-}
-
-task wrapper(type: Wrapper) {
-    description 'Creates the gradle wrapper.'
-    gradleVersion '2.8'
 }
