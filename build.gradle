@@ -6,7 +6,8 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.0.0-alpha5'
+        classpath 'com.android.tools.build:gradle:2.2.0-alpha6'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
     }
 }
 
@@ -14,12 +15,12 @@ allprojects {
 
     ext {
         androidApplicationId = 'com.marcohc.robotocalendar'
-        androidBuildToolsVersion = "23.0.2"
+        androidBuildToolsVersion = "24.0.1"
         androidMinSdkVersion = 11
-        androidTargetSdkVersion = 23
-        androidCompileSdkVersion = 23
+        androidTargetSdkVersion = 24
+        androidCompileSdkVersion = 24
         androidVersionCode = 1
-        androidVersionName = "1.2.1.1"
+        androidVersionName = "2.0.0"
     }
 
     repositories {

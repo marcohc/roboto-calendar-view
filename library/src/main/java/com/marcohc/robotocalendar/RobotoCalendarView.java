@@ -148,7 +148,6 @@ public class RobotoCalendarView extends LinearLayout {
     // * Initialization UI methods
     // ************************************************************************************************************************************************************************
 
-    @SuppressLint("DefaultLocale")
     private void initializeTitleLayout() {
 
         String dateText = new DateFormatSymbols(locale).getMonths()[currentCalendar.get(Calendar.MONTH)];
@@ -161,7 +160,6 @@ public class RobotoCalendarView extends LinearLayout {
         }
     }
 
-    @SuppressLint("DefaultLocale")
     private void initializeWeekDaysLayout() {
 
         TextView dayOfWeek;
@@ -175,7 +173,6 @@ public class RobotoCalendarView extends LinearLayout {
         }
     }
 
-    @SuppressLint("DefaultLocale")
     private String checkSpecificLocales(String dayOfTheWeekString, int i) {
         // Set Wednesday as "X" in Spanish locale
         if (i == 4 && locale.getCountry().equals("ES")) {
