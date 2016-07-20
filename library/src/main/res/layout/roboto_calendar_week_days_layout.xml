@@ -7,7 +7,7 @@
     android:weightSum="7">
 
     <TextView
-        style="@style/DayOfTheWeek"
+        style="@style/RobotoCalendarDayOfTheWeek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -17,7 +17,7 @@
         android:textColor="@color/roboto_calendar_day_of_week" />
 
     <TextView
-        style="@style/DayOfTheWeek"
+        style="@style/RobotoCalendarDayOfTheWeek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -27,7 +27,7 @@
         android:textColor="@color/roboto_calendar_day_of_week" />
 
     <TextView
-        style="@style/DayOfTheWeek"
+        style="@style/RobotoCalendarDayOfTheWeek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -37,7 +37,7 @@
         android:textColor="@color/roboto_calendar_day_of_week" />
 
     <TextView
-        style="@style/DayOfTheWeek"
+        style="@style/RobotoCalendarDayOfTheWeek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -47,7 +47,7 @@
         android:textColor="@color/roboto_calendar_day_of_week" />
 
     <TextView
-        style="@style/DayOfTheWeek"
+        style="@style/RobotoCalendarDayOfTheWeek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -57,7 +57,7 @@
         android:textColor="@color/roboto_calendar_day_of_week" />
 
     <TextView
-        style="@style/DayOfTheWeek"
+        style="@style/RobotoCalendarDayOfTheWeek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -67,7 +67,7 @@
         android:textColor="@color/roboto_calendar_day_of_week" />
 
     <TextView
-        style="@style/DayOfTheWeek"
+        style="@style/RobotoCalendarDayOfTheWeek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"

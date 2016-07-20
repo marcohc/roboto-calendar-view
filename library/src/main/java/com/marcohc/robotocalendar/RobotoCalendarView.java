@@ -15,8 +15,9 @@
  */
 package com.marcohc.robotocalendar;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Typeface;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,7 +28,6 @@ import android.widget.TextView;
 
 import java.text.DateFormatSymbols;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
@@ -54,10 +54,7 @@ public class RobotoCalendarView extends LinearLayout {
     // Class
     private RobotoCalendarListener robotoCalendarListener;
     private Calendar currentCalendar;
-    private Locale locale;
-
-    private Date lastCurrentDay;
-    private Date lastSelectedDay;
+    private Calendar lastSelectedDayCalendar;
 
     public static final int RED_COLOR = R.color.roboto_calendar_red;
     public static final int GREEN_COLOR = R.color.roboto_calendar_green;
@@ -88,23 +85,12 @@ public class RobotoCalendarView extends LinearLayout {
         onCreateView();
     }
 
-    public View onCreateView() {
-
+    private View onCreateView() {
         LayoutInflater inflate = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflate.inflate(R.layout.roboto_calendar_picker_layout, this, true);
-
         findViewsById(view);
-
-        initializeEventListeners();
-
-        initializeComponentBehavior();
-
-        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                        .setDefaultFontPath("fonts/Roboto-Regular.ttf")
-                        .setFontAttrId(R.attr.fontPath)
-                        .build()
-        );
-
+        setUpEventListeners();
+        setUpView();
         return view;
     }
 
@@ -114,7 +100,7 @@ public class RobotoCalendarView extends LinearLayout {
         dateTitle = (TextView) view.findViewById(R.id.dateTitle);
     }
 
-    private void initializeEventListeners() {
+    private void setUpEventListeners() {
 
         leftButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -122,6 +108,11 @@ public class RobotoCalendarView extends LinearLayout {
                 if (robotoCalendarListener == null) {
                     throw new IllegalStateException("You must assign a valid RobotoCalendarListener first!");
                 }
+
+                // Decrease month
+                currentCalendar.add(Calendar.MONTH, -1);
+                lastSelectedDayCalendar = null;
+                updateView();
                 robotoCalendarListener.onLeftButtonClick();
             }
         });
@@ -132,25 +123,51 @@ public class RobotoCalendarView extends LinearLayout {
                 if (robotoCalendarListener == null) {
                     throw new IllegalStateException("You must assign a valid RobotoCalendarListener first!");
                 }
+
+                // Increase month
+                currentCalendar.add(Calendar.MONTH, 1);
+                lastSelectedDayCalendar = null;
+                updateView();
                 robotoCalendarListener.onRightButtonClick();
             }
         });
     }
 
-    private void initializeComponentBehavior() {
+    private void setUpView() {
         // Initialize calendar for current month
-        Locale locale = context.getResources().getConfiguration().locale;
-        Calendar currentCalendar = Calendar.getInstance(locale);
-        initializeCalendar(currentCalendar);
+        Calendar currentCalendar = Calendar.getInstance();
+        setCalendar(currentCalendar);
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/Roboto-Regular.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build()
+        );
     }
 
     // ************************************************************************************************************************************************************************
-    // * Initialization UI methods
+    // * Auxiliary UI methods
     // ************************************************************************************************************************************************************************
 
-    private void initializeTitleLayout() {
+    private void updateView() {
 
-        String dateText = new DateFormatSymbols(locale).getMonths()[currentCalendar.get(Calendar.MONTH)];
+        // Set date title
+        setTitleLayout();
+
+        // Set weeks days titles
+        setWeekDaysLayout();
+
+        // Initialize days of the month
+        setDaysOfMonthLayout();
+
+        // Set days in calendar
+        setDaysInCalendar();
+
+        markDayAsCurrentDay();
+    }
+
+    private void setTitleLayout() {
+
+        String dateText = new DateFormatSymbols(Locale.getDefault()).getMonths()[currentCalendar.get(Calendar.MONTH)];
         dateText = dateText.substring(0, 1).toUpperCase() + dateText.subSequence(1, dateText.length());
         Calendar calendar = Calendar.getInstance();
         if (currentCalendar.get(Calendar.YEAR) == calendar.get(Calendar.YEAR)) {
@@ -160,11 +177,11 @@ public class RobotoCalendarView extends LinearLayout {
         }
     }
 
-    private void initializeWeekDaysLayout() {
+    private void setWeekDaysLayout() {
 
         TextView dayOfWeek;
         String dayOfTheWeekString;
-        String[] weekDaysArray = new DateFormatSymbols(locale).getShortWeekdays();
+        String[] weekDaysArray = new DateFormatSymbols(Locale.getDefault()).getShortWeekdays();
         for (int i = 1; i < weekDaysArray.length; i++) {
             dayOfWeek = (TextView) view.findViewWithTag(DAY_OF_WEEK + getWeekIndex(i, currentCalendar));
             dayOfTheWeekString = weekDaysArray[i];
@@ -174,8 +191,8 @@ public class RobotoCalendarView extends LinearLayout {
     }
 
     private String checkSpecificLocales(String dayOfTheWeekString, int i) {
-        // Set Wednesday as "X" in Spanish locale
-        if (i == 4 && locale.getCountry().equals("ES")) {
+        // Set Wednesday as "X" in Spanish Locale.getDefault()
+        if (i == 4 && Locale.getDefault().getCountry().equals("ES")) {
             dayOfTheWeekString = "X";
         } else {
             dayOfTheWeekString = dayOfTheWeekString.substring(0, 1).toUpperCase();
@@ -183,7 +200,7 @@ public class RobotoCalendarView extends LinearLayout {
         return dayOfTheWeekString;
     }
 
-    private void initializeDaysOfMonthLayout() {
+    private void setDaysOfMonthLayout() {
 
         TextView dayOfMonthText;
         View firstUnderline;
@@ -205,6 +222,8 @@ public class RobotoCalendarView extends LinearLayout {
 
             // Apply styles
             dayOfMonthText.setBackgroundResource(android.R.color.transparent);
+            dayOfMonthText.setTypeface(null, Typeface.NORMAL);
+            dayOfMonthText.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_day_of_month));
             dayOfMonthContainer.setBackgroundResource(android.R.color.transparent);
             dayOfMonthContainer.setOnClickListener(null);
             dayOfMonthBackground.setBackgroundResource(android.R.color.transparent);
@@ -212,7 +231,7 @@ public class RobotoCalendarView extends LinearLayout {
     }
 
     private void setDaysInCalendar() {
-        Calendar auxCalendar = Calendar.getInstance(locale);
+        Calendar auxCalendar = Calendar.getInstance(Locale.getDefault());
         auxCalendar.setTime(currentCalendar.getTime());
         auxCalendar.set(Calendar.DAY_OF_MONTH, 1);
         int firstDayOfMonth = auxCalendar.get(Calendar.DAY_OF_WEEK);
@@ -243,14 +262,36 @@ public class RobotoCalendarView extends LinearLayout {
         }
     }
 
-    private void clearDayOfTheMonthStyle(Date currentDate) {
-
-        if (currentDate != null) {
-            Calendar calendar = getCurrentCalendar();
-            calendar.setTime(currentDate);
+    private void clearDayOfTheMonthStyle(Calendar calendar) {
+        if (calendar != null) {
             ViewGroup dayOfMonthBackground = getDayOfMonthBackground(calendar);
             dayOfMonthBackground.setBackgroundResource(android.R.color.transparent);
         }
+    }
+
+    private void markDayAsCurrentDay() {
+        // If it's the current month, mark current day
+        Calendar nowCalendar = Calendar.getInstance();
+        if (nowCalendar.get(Calendar.YEAR) == currentCalendar.get(Calendar.YEAR) && nowCalendar.get(Calendar.MONTH) == currentCalendar.get(Calendar.MONTH)) {
+            Calendar currentCalendar = Calendar.getInstance();
+            currentCalendar.setTime(nowCalendar.getTime());
+            TextView dayOfMonth = getDayOfMonthText(currentCalendar);
+            dayOfMonth.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_current_day_of_month));
+            dayOfMonth.setTypeface(null, Typeface.BOLD);
+        }
+    }
+
+    private void markDayAsSelectedDay(Calendar calendar) {
+
+        // Clear previous current day mark
+        clearDayOfTheMonthStyle(lastSelectedDayCalendar);
+
+        // Store current values as last values
+        lastSelectedDayCalendar = calendar;
+
+        // Mark current day as selected
+        ViewGroup dayOfMonthBackground = getDayOfMonthBackground(calendar);
+        dayOfMonthBackground.setBackgroundResource(R.drawable.circle);
     }
 
     // ************************************************************************************************************************************************************************
@@ -318,84 +359,28 @@ public class RobotoCalendarView extends LinearLayout {
         return view.findViewWithTag(key + index);
     }
 
-    private Calendar getCurrentCalendar() {
-        return Calendar.getInstance(context.getResources().getConfiguration().locale);
-    }
-
     // ************************************************************************************************************************************************************************
     // * Public calendar methods
     // ************************************************************************************************************************************************************************
 
-    @SuppressLint("DefaultLocale")
-    public void initializeCalendar(Calendar currentCalendar) {
-
-        this.currentCalendar = currentCalendar;
-        locale = context.getResources().getConfiguration().locale;
-
-        // Set date title
-        initializeTitleLayout();
-
-        // Set weeks days titles
-        initializeWeekDaysLayout();
-
-        // Initialize days of the month
-        initializeDaysOfMonthLayout();
-
-        // Set days in calendar
-        setDaysInCalendar();
+    /**
+     * Set an specific calendar to the view
+     *
+     * @param calendar
+     */
+    public void setCalendar(Calendar calendar) {
+        this.currentCalendar = calendar;
+        updateView();
     }
 
-    public void markDayAsCurrentDay(Date currentDate) {
-        if (currentDate != null) {
-            lastCurrentDay = currentDate;
-            Calendar currentCalendar = getCurrentCalendar();
-            currentCalendar.setTime(currentDate);
-            TextView dayOfMonth = getDayOfMonthText(currentCalendar);
-            dayOfMonth.setTextColor(context.getResources().getColor(R.color.roboto_calendar_current_day_of_month));
-        }
-    }
-
-    public void markDayAsSelectedDay(Date currentDate) {
-
-        // Initialize attributes
-        Calendar currentCalendar = getCurrentCalendar();
-        currentCalendar.setTime(currentDate);
-
-        // Clear previous marks
-        clearDayOfTheMonthStyle(lastSelectedDay);
-
-        markDayAsCurrentDay(lastCurrentDay);
-
-        // Store current values as last values
-        storeLastValues(currentDate);
-
-        // Mark current day as selected
-        ViewGroup dayOfMonthBackground = getDayOfMonthBackground(currentCalendar);
-        dayOfMonthBackground.setBackgroundResource(R.drawable.circle);
-    }
-
-    private void storeLastValues(Date currentDate) {
-        lastSelectedDay = currentDate;
-    }
-
-    public void markFirstUnderlineWithStyle(int style, Date currentDate) {
-        Locale locale = context.getResources().getConfiguration().locale;
-        Calendar currentCalendar = Calendar.getInstance(locale);
-        currentCalendar.setTime(currentDate);
-        View underline = getFirstUnderline(currentCalendar);
-
-        // Draw day with style
+    public void markFirstUnderlineWithStyle(int style, Calendar calendar) {
+        View underline = getFirstUnderline(calendar);
         underline.setVisibility(View.VISIBLE);
         underline.setBackgroundResource(style);
     }
 
-    public void markSecondUnderlineWithStyle(int style, Date currentDate) {
-        Locale locale = context.getResources().getConfiguration().locale;
-        Calendar currentCalendar = Calendar.getInstance(locale);
-        currentCalendar.setTime(currentDate);
-        View underline = getSecondUnderline(currentCalendar);
-
-        // Draw day with style
+    public void markSecondUnderlineWithStyle(int style, Calendar calendar) {
+        View underline = getSecondUnderline(calendar);
         underline.setVisibility(View.VISIBLE);
         underline.setBackgroundResource(style);
     }
@@ -406,7 +391,7 @@ public class RobotoCalendarView extends LinearLayout {
 
     public interface RobotoCalendarListener {
 
-        void onDateSelected(Date date);
+        void onDaySelected(Calendar daySelectedCalendar);
 
         void onRightButtonClick();
 
@@ -424,21 +409,25 @@ public class RobotoCalendarView extends LinearLayout {
     private OnClickListener onDayOfMonthClickListener = new OnClickListener() {
         @Override
         public void onClick(View view) {
+
             // Extract day selected
             ViewGroup dayOfMonthContainer = (ViewGroup) view;
             String tagId = (String) dayOfMonthContainer.getTag();
             tagId = tagId.substring(DAY_OF_MONTH_CONTAINER.length(), tagId.length());
             TextView dayOfMonthText = (TextView) view.findViewWithTag(DAY_OF_MONTH_TEXT + tagId);
 
-            // Fire event
+            // Extract the day from the text
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(currentCalendar.getTime());
             calendar.set(Calendar.DAY_OF_MONTH, Integer.valueOf(dayOfMonthText.getText().toString()));
 
+            markDayAsSelectedDay(calendar);
+
+            // Fire event
             if (robotoCalendarListener == null) {
-                throw new IllegalStateException("You must assing a valid RobotoCalendarListener first!");
+                throw new IllegalStateException("You must assign a valid RobotoCalendarListener first!");
             } else {
-                robotoCalendarListener.onDateSelected(calendar.getTime());
+                robotoCalendarListener.onDaySelected(calendar);
             }
         }
     };

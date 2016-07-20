@@ -28,7 +28,7 @@
             android:orientation="vertical">
 
             <TextView
-                style="@style/DayOfTheMonth"
+                style="@style/RobotoCalendarDayOfTheMonth"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -72,7 +72,7 @@
             android:orientation="vertical">
 
             <TextView
-                style="@style/DayOfTheMonth"
+                style="@style/RobotoCalendarDayOfTheMonth"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -116,7 +116,7 @@
             android:orientation="vertical">
 
             <TextView
-                style="@style/DayOfTheMonth"
+                style="@style/RobotoCalendarDayOfTheMonth"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -160,7 +160,7 @@
             android:orientation="vertical">
 
             <TextView
-                style="@style/DayOfTheMonth"
+                style="@style/RobotoCalendarDayOfTheMonth"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -204,7 +204,7 @@
             android:orientation="vertical">
 
             <TextView
-                style="@style/DayOfTheMonth"
+                style="@style/RobotoCalendarDayOfTheMonth"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -248,7 +248,7 @@
             android:orientation="vertical">
 
             <TextView
-                style="@style/DayOfTheMonth"
+                style="@style/RobotoCalendarDayOfTheMonth"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -292,7 +292,7 @@
             android:orientation="vertical">
 
             <TextView
-                style="@style/DayOfTheMonth"
+                style="@style/RobotoCalendarDayOfTheMonth"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

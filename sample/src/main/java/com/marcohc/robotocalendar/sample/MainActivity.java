@@ -18,14 +18,13 @@ package com.marcohc.robotocalendar.sample;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import com.marcohc.robotocalendar.RobotoCalendarView;
 import com.marcohc.robotocalendar.RobotoCalendarView.RobotoCalendarListener;
 import com.marcohc.robotocalendarsample.R;
 
 import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 import java.util.Random;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -38,8 +37,6 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class MainActivity extends AppCompatActivity implements RobotoCalendarListener {
 
     private RobotoCalendarView robotoCalendarView;
-    private int currentMonthIndex;
-    private Calendar currentCalendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,13 +51,6 @@ public class MainActivity extends AppCompatActivity implements RobotoCalendarLis
         // Set listener, in this case, the same activity
         robotoCalendarView.setRobotoCalendarListener(this);
 
-        // Initialize the RobotoCalendarPicker with the current index and date
-        currentMonthIndex = 0;
-        currentCalendar = Calendar.getInstance(Locale.getDefault());
-
-        // Mark current day
-        robotoCalendarView.markDayAsCurrentDay(currentCalendar.getTime());
-
     }
 
     @Override
@@ -69,23 +59,22 @@ public class MainActivity extends AppCompatActivity implements RobotoCalendarLis
     }
 
     @Override
-    public void onDateSelected(Date date) {
+    public void onDaySelected(Calendar daySelectedCalendar) {
 
-        // Mark calendar day
-        robotoCalendarView.markDayAsSelectedDay(date);
+        Toast.makeText(this, "onDaySelected!", Toast.LENGTH_SHORT).show();
 
         // Mark that day with random colors
         final Random random = new Random(System.currentTimeMillis());
         final int style = random.nextInt(3);
         switch (style) {
             case 0:
-                robotoCalendarView.markFirstUnderlineWithStyle(RobotoCalendarView.BLUE_COLOR, date);
+                robotoCalendarView.markFirstUnderlineWithStyle(RobotoCalendarView.BLUE_COLOR, daySelectedCalendar);
                 break;
             case 1:
-                robotoCalendarView.markSecondUnderlineWithStyle(RobotoCalendarView.GREEN_COLOR, date);
+                robotoCalendarView.markSecondUnderlineWithStyle(RobotoCalendarView.GREEN_COLOR, daySelectedCalendar);
                 break;
             case 2:
-                robotoCalendarView.markFirstUnderlineWithStyle(RobotoCalendarView.RED_COLOR, date);
+                robotoCalendarView.markFirstUnderlineWithStyle(RobotoCalendarView.RED_COLOR, daySelectedCalendar);
                 break;
             default:
                 break;
@@ -94,19 +83,12 @@ public class MainActivity extends AppCompatActivity implements RobotoCalendarLis
 
     @Override
     public void onRightButtonClick() {
-        currentMonthIndex++;
-        updateCalendar();
+        Toast.makeText(this, "onRightButtonClick!", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onLeftButtonClick() {
-        currentMonthIndex--;
-        updateCalendar();
+        Toast.makeText(this, "onLeftButtonClick!", Toast.LENGTH_SHORT).show();
     }
 
-    private void updateCalendar() {
-        currentCalendar = Calendar.getInstance(Locale.getDefault());
-        currentCalendar.add(Calendar.MONTH, currentMonthIndex);
-        robotoCalendarView.initializeCalendar(currentCalendar);
-    }
 }
