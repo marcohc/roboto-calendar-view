@@ -12,6 +12,7 @@ android {
         targetSdkVersion globalConfiguration.getAt("androidTargetSdkVersion")
         versionCode globalConfiguration.getAt("androidVersionCode")
         versionName globalConfiguration.getAt("androidVersionName")
+        vectorDrawables.useSupportLibrary = true
     }
 
     compileOptions {
@@ -28,4 +29,5 @@ android {
 
 dependencies {
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
+    compile 'com.android.support:appcompat-v7:24.1.1'
 }

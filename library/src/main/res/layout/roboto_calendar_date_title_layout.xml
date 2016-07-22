@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/robotoCalendarDateTitleContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:clickable="true"
-    android:paddingBottom="@dimen/roboto_calendar_date_title_padding_bottom">
+    android:clickable="true">
 
     <ImageView
-        android:id="@+id/leftButton"
+        android:id="@+id/rightButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="false"
+        android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:paddingLeft="@dimen/roboto_calendar_padding"
-        android:src="@drawable/arrow_blue_left_selector" />
+        android:layout_marginLeft="@dimen/roboto_calendar_padding"
+        android:layout_marginRight="@dimen/roboto_calendar_padding"
+        app:srcCompat="@drawable/ic_arrow_right" />
 
     <TextView
         android:id="@+id/dateTitle"
@@ -27,13 +28,13 @@
         android:textAllCaps="true" />
 
     <ImageView
-        android:id="@+id/rightButton"
+        android:id="@+id/leftButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="false"
+        android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:paddingRight="@dimen/roboto_calendar_padding"
-        android:src="@drawable/arrow_blue_right_selector" />
+        android:layout_marginLeft="@dimen/roboto_calendar_padding"
+        android:layout_marginRight="@dimen/roboto_calendar_padding"
+        app:srcCompat="@drawable/ic_arrow_left" />
 
 </RelativeLayout>

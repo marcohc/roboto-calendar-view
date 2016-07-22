@@ -51,6 +51,11 @@ public class MainActivity extends AppCompatActivity implements RobotoCalendarLis
         // Set listener, in this case, the same activity
         robotoCalendarView.setRobotoCalendarListener(this);
 
+        robotoCalendarView.setShortWeekDays(false);
+
+        robotoCalendarView.showDateTitle(true);
+
+        robotoCalendarView.updateView();
     }
 
     @Override
@@ -68,13 +73,13 @@ public class MainActivity extends AppCompatActivity implements RobotoCalendarLis
         final int style = random.nextInt(3);
         switch (style) {
             case 0:
-                robotoCalendarView.markFirstUnderlineWithStyle(RobotoCalendarView.BLUE_COLOR, daySelectedCalendar);
+                robotoCalendarView.markFirstUnderline(daySelectedCalendar, RobotoCalendarView.BLUE_COLOR);
                 break;
             case 1:
-                robotoCalendarView.markSecondUnderlineWithStyle(RobotoCalendarView.GREEN_COLOR, daySelectedCalendar);
+                robotoCalendarView.markSecondUnderline(daySelectedCalendar, RobotoCalendarView.GREEN_COLOR);
                 break;
             case 2:
-                robotoCalendarView.markFirstUnderlineWithStyle(RobotoCalendarView.RED_COLOR, daySelectedCalendar);
+                robotoCalendarView.markFirstUnderline(daySelectedCalendar, RobotoCalendarView.RED_COLOR);
                 break;
             default:
                 break;

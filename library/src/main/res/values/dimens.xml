@@ -3,7 +3,7 @@
 
     <!-- dateTitleLayout -->
     <dimen name="roboto_calendar_date_title_font">16sp</dimen>
-    <dimen name="roboto_calendar_date_title_padding_bottom">5dp</dimen>
+    <dimen name="roboto_calendar_date_title_padding_bottom">8dp</dimen>
 
     <!-- weekLayout -->
     <dimen name="roboto_calendar_day_of_week_font">14sp</dimen>

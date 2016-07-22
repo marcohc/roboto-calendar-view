@@ -44,12 +44,14 @@ public class RobotoCalendarView extends LinearLayout {
     // ************************************************************************************************************************************************************************
 
     private static final String DAY_OF_WEEK = "dayOfWeek";
+
     // View
     private Context context;
     private TextView dateTitle;
     private ImageView leftButton;
     private ImageView rightButton;
     private View view;
+    private ViewGroup robotoCalendarDateTitleContainer;
 
     // Class
     private RobotoCalendarListener robotoCalendarListener;
@@ -65,6 +67,7 @@ public class RobotoCalendarView extends LinearLayout {
     private static final String DAY_OF_MONTH_CONTAINER = "dayOfMonthContainer";
     private static final String FIRST_UNDERLINE = "firstUnderlineView";
     private static final String SECOND_UNDERLINE = "secondUnderlineView";
+    private boolean shortWeekDays = false;
 
     // ************************************************************************************************************************************************************************
     // * Initialization methods
@@ -95,6 +98,7 @@ public class RobotoCalendarView extends LinearLayout {
     }
 
     private void findViewsById(View view) {
+        robotoCalendarDateTitleContainer = (ViewGroup) view.findViewById(R.id.robotoCalendarDateTitleContainer);
         leftButton = (ImageView) view.findViewById(R.id.leftButton);
         rightButton = (ImageView) view.findViewById(R.id.rightButton);
         dateTitle = (TextView) view.findViewById(R.id.dateTitle);
@@ -148,25 +152,7 @@ public class RobotoCalendarView extends LinearLayout {
     // * Auxiliary UI methods
     // ************************************************************************************************************************************************************************
 
-    private void updateView() {
-
-        // Set date title
-        setTitleLayout();
-
-        // Set weeks days titles
-        setWeekDaysLayout();
-
-        // Initialize days of the month
-        setDaysOfMonthLayout();
-
-        // Set days in calendar
-        setDaysInCalendar();
-
-        markDayAsCurrentDay();
-    }
-
     private void setTitleLayout() {
-
         String dateText = new DateFormatSymbols(Locale.getDefault()).getMonths()[currentCalendar.get(Calendar.MONTH)];
         dateText = dateText.substring(0, 1).toUpperCase() + dateText.subSequence(1, dateText.length());
         Calendar calendar = Calendar.getInstance();
@@ -178,14 +164,18 @@ public class RobotoCalendarView extends LinearLayout {
     }
 
     private void setWeekDaysLayout() {
-
         TextView dayOfWeek;
         String dayOfTheWeekString;
-        String[] weekDaysArray = new DateFormatSymbols(Locale.getDefault()).getShortWeekdays();
+        String[] weekDaysArray = new DateFormatSymbols(Locale.getDefault()).getWeekdays();
         for (int i = 1; i < weekDaysArray.length; i++) {
             dayOfWeek = (TextView) view.findViewWithTag(DAY_OF_WEEK + getWeekIndex(i, currentCalendar));
             dayOfTheWeekString = weekDaysArray[i];
-            dayOfTheWeekString = checkSpecificLocales(dayOfTheWeekString, i);
+            if (shortWeekDays) {
+                dayOfTheWeekString = checkSpecificLocales(dayOfTheWeekString, i);
+            } else {
+                dayOfTheWeekString = dayOfTheWeekString.substring(0, 1).toUpperCase() + dayOfTheWeekString.substring(1, 3);
+            }
+
             dayOfWeek.setText(dayOfTheWeekString);
         }
     }
@@ -252,14 +242,14 @@ public class RobotoCalendarView extends LinearLayout {
             dayOfMonthText.setText(String.valueOf(i));
         }
 
-        // If the last week row has no visible days, hide it or show it in case
-        ViewGroup weekRow = (ViewGroup) view.findViewWithTag("weekRow6");
-        dayOfMonthText = (TextView) view.findViewWithTag("dayOfMonthText36");
-        if (dayOfMonthText.getVisibility() == INVISIBLE) {
-            weekRow.setVisibility(GONE);
-        } else {
-            weekRow.setVisibility(VISIBLE);
-        }
+//        // If the last week row has no visible days, hide it or show it in case
+//        ViewGroup weekRow = (ViewGroup) view.findViewWithTag("weekRow7");
+//        dayOfMonthText = (TextView) view.findViewWithTag("dayOfMonthText36");
+//        if (dayOfMonthText.getVisibility() == INVISIBLE) {
+//            weekRow.setVisibility(GONE);
+//        } else {
+//            weekRow.setVisibility(VISIBLE);
+//        }
     }
 
     private void clearDayOfTheMonthStyle(Calendar calendar) {
@@ -373,16 +363,46 @@ public class RobotoCalendarView extends LinearLayout {
         updateView();
     }
 
-    public void markFirstUnderlineWithStyle(int style, Calendar calendar) {
-        View underline = getFirstUnderline(calendar);
-        underline.setVisibility(View.VISIBLE);
-        underline.setBackgroundResource(style);
+    /**
+     * Update the calendar view
+     */
+    public void updateView() {
+        setTitleLayout();
+        setWeekDaysLayout();
+        setDaysOfMonthLayout();
+        setDaysInCalendar();
+        markDayAsCurrentDay();
     }
 
-    public void markSecondUnderlineWithStyle(int style, Calendar calendar) {
+    public void setShortWeekDays(boolean shortWeekDays) {
+        this.shortWeekDays = shortWeekDays;
+    }
+
+    /**
+     * Clear the view of marks and selections
+     */
+    public void clearCalendar() {
+        updateView();
+    }
+
+    public void markFirstUnderline(Calendar calendar, int colorId) {
+        View underline = getFirstUnderline(calendar);
+        underline.setVisibility(View.VISIBLE);
+        underline.setBackgroundResource(colorId);
+    }
+
+    public void markSecondUnderline(Calendar calendar, int colorId) {
         View underline = getSecondUnderline(calendar);
         underline.setVisibility(View.VISIBLE);
-        underline.setBackgroundResource(style);
+        underline.setBackgroundResource(colorId);
+    }
+
+    public void showDateTitle(boolean show) {
+        if (show) {
+            robotoCalendarDateTitleContainer.setVisibility(VISIBLE);
+        } else {
+            robotoCalendarDateTitleContainer.setVisibility(GONE);
+        }
     }
 
     // ************************************************************************************************************************************************************************

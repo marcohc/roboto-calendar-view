@@ -2,63 +2,36 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/roboto_calendar_padding"
     android:background="@color/roboto_calendar_background"
-    android:orientation="vertical"
-    android:paddingLeft="@dimen/roboto_calendar_padding"
-    android:paddingRight="@dimen/roboto_calendar_padding">
+    android:orientation="vertical">
 
     <include
         layout="@layout/roboto_calendar_date_title_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <include
-        layout="@layout/roboto_calendar_week_days_layout"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/roboto_calendar_padding" />
+        android:layout_marginBottom="@dimen/roboto_calendar_date_title_padding_bottom" />
 
     <LinearLayout
         android:id="@+id/daysContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
-        <include
-            layout="@layout/roboto_calendar_week_1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/roboto_calendar_week_bottom_padding" />
+        <include layout="@layout/roboto_calendar_week_row_1" />
 
-        <include
-            layout="@layout/roboto_calendar_week_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/roboto_calendar_week_bottom_padding" />
+        <include layout="@layout/roboto_calendar_week_row_2" />
 
-        <include
-            layout="@layout/roboto_calendar_week_3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/roboto_calendar_week_bottom_padding" />
+        <include layout="@layout/roboto_calendar_week_row_3" />
 
-        <include
-            layout="@layout/roboto_calendar_week_4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/roboto_calendar_week_bottom_padding" />
+        <include layout="@layout/roboto_calendar_week_row_4" />
 
-        <include
-            layout="@layout/roboto_calendar_week_5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/roboto_calendar_week_bottom_padding" />
+        <include layout="@layout/roboto_calendar_week_row_5" />
 
-        <include
-            layout="@layout/roboto_calendar_week_6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        <include layout="@layout/roboto_calendar_week_row_6" />
+
+        <include layout="@layout/roboto_calendar_week_row_7" />
+
     </LinearLayout>
 
 </LinearLayout>

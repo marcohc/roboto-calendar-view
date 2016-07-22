@@ -13,7 +13,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:tag="dayOfWeek1"
-        android:text="L"
+        android:text="Mon"
         android:textColor="@color/roboto_calendar_day_of_week" />
 
     <TextView
@@ -23,7 +23,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:tag="dayOfWeek2"
-        android:text="M"
+        android:text="Tue"
         android:textColor="@color/roboto_calendar_day_of_week" />
 
     <TextView
@@ -33,7 +33,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:tag="dayOfWeek3"
-        android:text="X"
+        android:text="Wed"
         android:textColor="@color/roboto_calendar_day_of_week" />
 
     <TextView
@@ -43,7 +43,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:tag="dayOfWeek4"
-        android:text="J"
+        android:text="Thu"
         android:textColor="@color/roboto_calendar_day_of_week" />
 
     <TextView
@@ -53,7 +53,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:tag="dayOfWeek5"
-        android:text="V"
+        android:text="Fri"
         android:textColor="@color/roboto_calendar_day_of_week" />
 
     <TextView
@@ -63,8 +63,9 @@
         android:layout_weight="1"
         android:gravity="center"
         android:tag="dayOfWeek6"
-        android:text="S"
-        android:textColor="@color/roboto_calendar_day_of_week" />
+        android:text="Sat"
+        android:textColor="@color/roboto_calendar_day_of_week"
+        android:id="@+id/textView" />
 
     <TextView
         style="@style/RobotoCalendarDayOfTheWeek"
@@ -73,7 +74,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:tag="dayOfWeek7"
-        android:text="D"
+        android:text="Sun"
         android:textColor="@color/roboto_calendar_day_of_week" />
 
 </LinearLayout>
