@@ -2,36 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/roboto_calendar_padding"
     android:background="@color/roboto_calendar_background"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/roboto_calendar_padding">
 
     <include
-        layout="@layout/roboto_calendar_date_title_layout"
+        layout="@layout/roboto_calendar_month_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/roboto_calendar_date_title_padding_bottom" />
+        android:layout_marginBottom="@dimen/roboto_calendar_month_padding_bottom" />
 
-    <LinearLayout
-        android:id="@+id/daysContainer"
+    <include
+        layout="@layout/roboto_calendar_week_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <include layout="@layout/roboto_calendar_week_row_1" />
-
-        <include layout="@layout/roboto_calendar_week_row_2" />
-
-        <include layout="@layout/roboto_calendar_week_row_3" />
-
-        <include layout="@layout/roboto_calendar_week_row_4" />
-
-        <include layout="@layout/roboto_calendar_week_row_5" />
-
-        <include layout="@layout/roboto_calendar_week_row_6" />
-
-        <include layout="@layout/roboto_calendar_week_row_7" />
-
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/roboto_calendar_month_padding_bottom" />
 
 </LinearLayout>

@@ -43,15 +43,13 @@ public class RobotoCalendarView extends LinearLayout {
     // * Attributes
     // ************************************************************************************************************************************************************************
 
-    private static final String DAY_OF_WEEK = "dayOfWeek";
-
     // View
     private Context context;
     private TextView dateTitle;
     private ImageView leftButton;
     private ImageView rightButton;
-    private View view;
-    private ViewGroup robotoCalendarDateTitleContainer;
+    private View rootView;
+    private ViewGroup robotoCalendarMonthLayout;
 
     // Class
     private RobotoCalendarListener robotoCalendarListener;
@@ -62,11 +60,15 @@ public class RobotoCalendarView extends LinearLayout {
     public static final int GREEN_COLOR = R.color.roboto_calendar_green;
     public static final int BLUE_COLOR = R.color.roboto_calendar_blue;
 
-    private static final String DAY_OF_MONTH_TEXT = "dayOfMonthText";
-    private static final String DAY_OF_MONTH_BACKGROUND = "dayOfMonthBackground";
-    private static final String DAY_OF_MONTH_CONTAINER = "dayOfMonthContainer";
-    private static final String FIRST_UNDERLINE = "firstUnderlineView";
-    private static final String SECOND_UNDERLINE = "secondUnderlineView";
+    private static final String DAY_OF_THE_WEEK_TEXT = "dayOfTheWeekText";
+    private static final String DAY_OF_THE_WEEK_LAYOUT = "dayOfTheWeekLayout";
+
+    private static final String DAY_OF_THE_MONTH_LAYOUT = "dayOfTheMonthLayout";
+    private static final String DAY_OF_THE_MONTH_TEXT = "dayOfTheMonthText";
+    private static final String DAY_OF_THE_MONTH_BACKGROUND = "dayOfTheMonthBackground";
+    private static final String DAY_OF_THE_MONTH_CIRCLE_IMAGE_1 = "dayOfTheMonthCircleImage1";
+    private static final String DAY_OF_THE_MONTH_CIRCLE_IMAGE_2 = "dayOfTheMonthCircleImage2";
+
     private boolean shortWeekDays = false;
 
     // ************************************************************************************************************************************************************************
@@ -90,18 +92,43 @@ public class RobotoCalendarView extends LinearLayout {
 
     private View onCreateView() {
         LayoutInflater inflate = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        view = inflate.inflate(R.layout.roboto_calendar_picker_layout, this, true);
-        findViewsById(view);
+        rootView = inflate.inflate(R.layout.roboto_calendar_picker_layout, this, true);
+        findViewsById(rootView);
         setUpEventListeners();
         setUpView();
-        return view;
+        return rootView;
     }
 
     private void findViewsById(View view) {
-        robotoCalendarDateTitleContainer = (ViewGroup) view.findViewById(R.id.robotoCalendarDateTitleContainer);
+
+        robotoCalendarMonthLayout = (ViewGroup) view.findViewById(R.id.robotoCalendarDateTitleContainer);
         leftButton = (ImageView) view.findViewById(R.id.leftButton);
         rightButton = (ImageView) view.findViewById(R.id.rightButton);
         dateTitle = (TextView) view.findViewById(R.id.dateTitle);
+
+        for (int i = 0; i < 42; i++) {
+
+            LayoutInflater inflate = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            int weekIndex = (i % 7) + 1;
+            ViewGroup dayOfTheWeekLayout = (ViewGroup) view.findViewWithTag(DAY_OF_THE_WEEK_LAYOUT + weekIndex);
+
+            // Create day of the month
+            View dayOfTheMonthLayout = inflate.inflate(R.layout.roboto_calendar_day_of_the_month_layout, null);
+            View dayOfTheMonthText = dayOfTheMonthLayout.findViewWithTag(DAY_OF_THE_MONTH_TEXT);
+            View dayOfTheMonthBackground = dayOfTheMonthLayout.findViewWithTag(DAY_OF_THE_MONTH_BACKGROUND);
+            View dayOfTheMonthCircleImage1 = dayOfTheMonthLayout.findViewWithTag(DAY_OF_THE_MONTH_CIRCLE_IMAGE_1);
+            View dayOfTheMonthCircleImage2 = dayOfTheMonthLayout.findViewWithTag(DAY_OF_THE_MONTH_CIRCLE_IMAGE_2);
+
+            // Set tags to identify them
+            int viewIndex = i + 1;
+            dayOfTheMonthLayout.setTag(DAY_OF_THE_MONTH_LAYOUT + viewIndex);
+            dayOfTheMonthText.setTag(DAY_OF_THE_MONTH_TEXT + viewIndex);
+            dayOfTheMonthBackground.setTag(DAY_OF_THE_MONTH_BACKGROUND + viewIndex);
+            dayOfTheMonthCircleImage1.setTag(DAY_OF_THE_MONTH_CIRCLE_IMAGE_1 + viewIndex);
+            dayOfTheMonthCircleImage2.setTag(DAY_OF_THE_MONTH_CIRCLE_IMAGE_2 + viewIndex);
+
+            dayOfTheWeekLayout.addView(dayOfTheMonthLayout);
+        }
     }
 
     private void setUpEventListeners() {
@@ -152,7 +179,7 @@ public class RobotoCalendarView extends LinearLayout {
     // * Auxiliary UI methods
     // ************************************************************************************************************************************************************************
 
-    private void setTitleLayout() {
+    private void setMonthLayout() {
         String dateText = new DateFormatSymbols(Locale.getDefault()).getMonths()[currentCalendar.get(Calendar.MONTH)];
         dateText = dateText.substring(0, 1).toUpperCase() + dateText.subSequence(1, dateText.length());
         Calendar calendar = Calendar.getInstance();
@@ -168,7 +195,7 @@ public class RobotoCalendarView extends LinearLayout {
         String dayOfTheWeekString;
         String[] weekDaysArray = new DateFormatSymbols(Locale.getDefault()).getWeekdays();
         for (int i = 1; i < weekDaysArray.length; i++) {
-            dayOfWeek = (TextView) view.findViewWithTag(DAY_OF_WEEK + getWeekIndex(i, currentCalendar));
+            dayOfWeek = (TextView) rootView.findViewWithTag(DAY_OF_THE_WEEK_TEXT + getWeekIndex(i, currentCalendar));
             dayOfTheWeekString = weekDaysArray[i];
             if (shortWeekDays) {
                 dayOfTheWeekString = checkSpecificLocales(dayOfTheWeekString, i);
@@ -193,22 +220,22 @@ public class RobotoCalendarView extends LinearLayout {
     private void setDaysOfMonthLayout() {
 
         TextView dayOfMonthText;
-        View firstUnderline;
-        View secondUnderline;
+        View circleImage1;
+        View circleImage2;
         ViewGroup dayOfMonthContainer;
         ViewGroup dayOfMonthBackground;
 
         for (int i = 1; i < 43; i++) {
 
-            dayOfMonthContainer = (ViewGroup) view.findViewWithTag(DAY_OF_MONTH_CONTAINER + i);
-            dayOfMonthBackground = (ViewGroup) view.findViewWithTag(DAY_OF_MONTH_BACKGROUND + i);
-            dayOfMonthText = (TextView) view.findViewWithTag(DAY_OF_MONTH_TEXT + i);
-            firstUnderline = view.findViewWithTag(FIRST_UNDERLINE + i);
-            secondUnderline = view.findViewWithTag(SECOND_UNDERLINE + i);
+            dayOfMonthContainer = (ViewGroup) rootView.findViewWithTag(DAY_OF_THE_MONTH_LAYOUT + i);
+            dayOfMonthBackground = (ViewGroup) rootView.findViewWithTag(DAY_OF_THE_MONTH_BACKGROUND + i);
+            dayOfMonthText = (TextView) rootView.findViewWithTag(DAY_OF_THE_MONTH_TEXT + i);
+            circleImage1 = rootView.findViewWithTag(DAY_OF_THE_MONTH_CIRCLE_IMAGE_1 + i);
+            circleImage2 = rootView.findViewWithTag(DAY_OF_THE_MONTH_CIRCLE_IMAGE_2 + i);
 
             dayOfMonthText.setVisibility(View.INVISIBLE);
-            firstUnderline.setVisibility(View.INVISIBLE);
-            secondUnderline.setVisibility(View.INVISIBLE);
+            circleImage1.setVisibility(View.GONE);
+            circleImage2.setVisibility(View.GONE);
 
             // Apply styles
             dayOfMonthText.setBackgroundResource(android.R.color.transparent);
@@ -232,8 +259,8 @@ public class RobotoCalendarView extends LinearLayout {
         int dayOfMonthIndex = getWeekIndex(firstDayOfMonth, auxCalendar);
 
         for (int i = 1; i <= auxCalendar.getActualMaximum(Calendar.DAY_OF_MONTH); i++, dayOfMonthIndex++) {
-            dayOfMonthContainer = (ViewGroup) view.findViewWithTag(DAY_OF_MONTH_CONTAINER + dayOfMonthIndex);
-            dayOfMonthText = (TextView) view.findViewWithTag(DAY_OF_MONTH_TEXT + dayOfMonthIndex);
+            dayOfMonthContainer = (ViewGroup) rootView.findViewWithTag(DAY_OF_THE_MONTH_LAYOUT + dayOfMonthIndex);
+            dayOfMonthText = (TextView) rootView.findViewWithTag(DAY_OF_THE_MONTH_TEXT + dayOfMonthIndex);
             if (dayOfMonthText == null) {
                 break;
             }
@@ -289,19 +316,19 @@ public class RobotoCalendarView extends LinearLayout {
     // ************************************************************************************************************************************************************************
 
     private ViewGroup getDayOfMonthBackground(Calendar currentCalendar) {
-        return (ViewGroup) getView(DAY_OF_MONTH_BACKGROUND, currentCalendar);
+        return (ViewGroup) getView(DAY_OF_THE_MONTH_BACKGROUND, currentCalendar);
     }
 
     private TextView getDayOfMonthText(Calendar currentCalendar) {
-        return (TextView) getView(DAY_OF_MONTH_TEXT, currentCalendar);
+        return (TextView) getView(DAY_OF_THE_MONTH_TEXT, currentCalendar);
     }
 
-    private View getFirstUnderline(Calendar currentCalendar) {
-        return getView(FIRST_UNDERLINE, currentCalendar);
+    private View getCircleImage1(Calendar currentCalendar) {
+        return getView(DAY_OF_THE_MONTH_CIRCLE_IMAGE_1, currentCalendar);
     }
 
-    private View getSecondUnderline(Calendar currentCalendar) {
-        return getView(SECOND_UNDERLINE, currentCalendar);
+    private View getCircleImage2(Calendar currentCalendar) {
+        return getView(DAY_OF_THE_MONTH_CIRCLE_IMAGE_2, currentCalendar);
     }
 
     private int getDayIndexByDate(Calendar currentCalendar) {
@@ -346,7 +373,7 @@ public class RobotoCalendarView extends LinearLayout {
 
     private View getView(String key, Calendar currentCalendar) {
         int index = getDayIndexByDate(currentCalendar);
-        return view.findViewWithTag(key + index);
+        return rootView.findViewWithTag(key + index);
     }
 
     // ************************************************************************************************************************************************************************
@@ -367,7 +394,7 @@ public class RobotoCalendarView extends LinearLayout {
      * Update the calendar view
      */
     public void updateView() {
-        setTitleLayout();
+        setMonthLayout();
         setWeekDaysLayout();
         setDaysOfMonthLayout();
         setDaysInCalendar();
@@ -386,22 +413,22 @@ public class RobotoCalendarView extends LinearLayout {
     }
 
     public void markFirstUnderline(Calendar calendar, int colorId) {
-        View underline = getFirstUnderline(calendar);
+        View underline = getCircleImage1(calendar);
         underline.setVisibility(View.VISIBLE);
         underline.setBackgroundResource(colorId);
     }
 
     public void markSecondUnderline(Calendar calendar, int colorId) {
-        View underline = getSecondUnderline(calendar);
+        View underline = getCircleImage2(calendar);
         underline.setVisibility(View.VISIBLE);
         underline.setBackgroundResource(colorId);
     }
 
     public void showDateTitle(boolean show) {
         if (show) {
-            robotoCalendarDateTitleContainer.setVisibility(VISIBLE);
+            robotoCalendarMonthLayout.setVisibility(VISIBLE);
         } else {
-            robotoCalendarDateTitleContainer.setVisibility(GONE);
+            robotoCalendarMonthLayout.setVisibility(GONE);
         }
     }
 
@@ -433,8 +460,8 @@ public class RobotoCalendarView extends LinearLayout {
             // Extract day selected
             ViewGroup dayOfMonthContainer = (ViewGroup) view;
             String tagId = (String) dayOfMonthContainer.getTag();
-            tagId = tagId.substring(DAY_OF_MONTH_CONTAINER.length(), tagId.length());
-            TextView dayOfMonthText = (TextView) view.findViewWithTag(DAY_OF_MONTH_TEXT + tagId);
+            tagId = tagId.substring(DAY_OF_THE_MONTH_LAYOUT.length(), tagId.length());
+            TextView dayOfMonthText = (TextView) view.findViewWithTag(DAY_OF_THE_MONTH_TEXT + tagId);
 
             // Extract the day from the text
             Calendar calendar = Calendar.getInstance();

@@ -2,21 +2,21 @@
 <resources>
 
     <!-- dateTitleLayout -->
-    <dimen name="roboto_calendar_date_title_font">16sp</dimen>
-    <dimen name="roboto_calendar_date_title_padding_bottom">8dp</dimen>
+    <dimen name="roboto_calendar_month_font">16sp</dimen>
+    <dimen name="roboto_calendar_month_padding_bottom">8dp</dimen>
 
     <!-- weekLayout -->
-    <dimen name="roboto_calendar_day_of_week_font">14sp</dimen>
+    <dimen name="roboto_calendar_day_of_week_font">16sp</dimen>
 
     <!-- weekRowLayout -->
     <dimen name="roboto_calendar_week_bottom_padding">5dp</dimen>
 
     <!-- Day of the month -->
-    <dimen name="roboto_calendar_underline_weight">6dp</dimen>
-    <dimen name="roboto_calendar_underline_height">2dp</dimen>
+    <dimen name="roboto_calendar_day_of_the_month_font">16sp</dimen>
     <dimen name="roboto_calendar_day_of_month_background_size">32dp</dimen>
     <dimen name="roboto_calendar_day_of_month_indicator_size">3dp</dimen>
     <dimen name="roboto_calendar_day_of_month_image_margin_top">20dp</dimen>
     <dimen name="roboto_calendar_padding">8dp</dimen>
+    <dimen name="roboto_calendar_circle_size">3dp</dimen>
 
 </resources>
