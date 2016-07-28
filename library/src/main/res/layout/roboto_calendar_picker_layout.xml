@@ -10,12 +10,12 @@
         layout="@layout/roboto_calendar_month_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/roboto_calendar_month_padding_bottom" />
+        android:layout_marginBottom="@dimen/roboto_calendar_month_margin_bottom" />
 
     <include
         layout="@layout/roboto_calendar_week_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/roboto_calendar_month_padding_bottom" />
+        android:layout_marginBottom="@dimen/roboto_calendar_month_margin_bottom" />
 
 </LinearLayout>

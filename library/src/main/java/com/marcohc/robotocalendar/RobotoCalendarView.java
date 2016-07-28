@@ -101,7 +101,7 @@ public class RobotoCalendarView extends LinearLayout {
         robotoCalendarMonthLayout = (ViewGroup) view.findViewById(R.id.robotoCalendarDateTitleContainer);
         leftButton = (ImageView) view.findViewById(R.id.leftButton);
         rightButton = (ImageView) view.findViewById(R.id.rightButton);
-        dateTitle = (TextView) view.findViewById(R.id.dateTitle);
+        dateTitle = (TextView) view.findViewById(R.id.monthText);
 
         for (int i = 0; i < 42; i++) {
 
@@ -227,7 +227,7 @@ public class RobotoCalendarView extends LinearLayout {
             // Apply styles
             dayOfMonthText.setBackgroundResource(android.R.color.transparent);
             dayOfMonthText.setTypeface(null, Typeface.NORMAL);
-            dayOfMonthText.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_day_of_month_font));
+            dayOfMonthText.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_day_of_the_month_font));
             dayOfMonthContainer.setBackgroundResource(android.R.color.transparent);
             dayOfMonthContainer.setOnClickListener(null);
             dayOfMonthBackground.setBackgroundResource(android.R.color.transparent);
@@ -318,7 +318,7 @@ public class RobotoCalendarView extends LinearLayout {
             }
 
             TextView dayOfMonth = getDayOfMonthText(calendar);
-            dayOfMonth.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_day_of_month_font));
+            dayOfMonth.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_day_of_the_month_font));
 
             ImageView circleImage1 = getCircleImage1(calendar);
             ImageView circleImage2 = getCircleImage2(calendar);

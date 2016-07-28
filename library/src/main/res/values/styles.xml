@@ -7,21 +7,21 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
-    <style name="RobotoCalendarMonthTitle">
+    <style name="RobotoCalendarMonthText">
         <item name="android:textSize">@dimen/roboto_calendar_month_font</item>
         <item name="android:textColor">@color/roboto_calendar_month_font</item>
         <item name="fontPath">fonts/Roboto-Regular.ttf</item>
     </style>
 
-    <style name="RobotoCalendarDayOfTheWeek">
+    <style name="RobotoCalendarDayOfTheWeekText">
         <item name="android:textSize">@dimen/roboto_calendar_day_of_week_font</item>
-        <item name="android:textColor">@color/roboto_calendar_day_of_month_font</item>
+        <item name="android:textColor">@color/roboto_calendar_day_of_the_month_font</item>
         <item name="fontPath">fonts/Roboto-Regular.ttf</item>
     </style>
 
-    <style name="RobotoCalendarDayOfTheMonth">
+    <style name="RobotoCalendarDayOfTheMonthText">
         <item name="android:textSize">@dimen/roboto_calendar_day_of_the_month_font</item>
-        <item name="android:textColor">@color/roboto_calendar_day_of_month_font</item>
+        <item name="android:textColor">@color/roboto_calendar_day_of_the_month_font</item>
         <item name="fontPath">fonts/Roboto-Light.ttf</item>
     </style>
 

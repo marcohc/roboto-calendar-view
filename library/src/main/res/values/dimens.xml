@@ -1,23 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!-- dateTitleLayout -->
-    <dimen name="roboto_calendar_month_font">16sp</dimen>
-    <dimen name="roboto_calendar_month_padding_bottom">8dp</dimen>
-
-    <!-- weekLayout -->
-    <dimen name="roboto_calendar_day_of_week_font">16sp</dimen>
-
-    <!-- weekRowLayout -->
-    <dimen name="roboto_calendar_week_bottom_padding">5dp</dimen>
-
-    <!-- Day of the month -->
-    <dimen name="roboto_calendar_day_of_the_month_font">16sp</dimen>
-    <dimen name="roboto_calendar_day_of_month_background_size">40dp</dimen>
-    <dimen name="roboto_calendar_day_of_month_indicator_size">3dp</dimen>
-    <dimen name="roboto_calendar_day_of_month_image_margin_top">20dp</dimen>
     <dimen name="roboto_calendar_padding">8dp</dimen>
+    <dimen name="roboto_calendar_month_margin_bottom">8dp</dimen>
+    <dimen name="roboto_calendar_week_margin_bottom">5dp</dimen>
+    <dimen name="roboto_calendar_day_of_the_month_background_size">40dp</dimen>
     <dimen name="roboto_calendar_circle_size">4dp</dimen>
     <dimen name="roboto_calendar_ring_size">18dp</dimen>
-
+    <dimen name="roboto_calendar_month_font">16sp</dimen>
+    <dimen name="roboto_calendar_day_of_week_font">16sp</dimen>
+    <dimen name="roboto_calendar_day_of_the_month_font">16sp</dimen>
 </resources>

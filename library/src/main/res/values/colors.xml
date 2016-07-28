@@ -2,11 +2,11 @@
 <resources>
     <color name="roboto_calendar_background">#FFFFFF</color>
     <color name="roboto_calendar_month_font">#2A99BC</color>
-    <color name="roboto_calendar_day_of_week_font">#161d20</color>
+    <color name="roboto_calendar_day_of_the_week_font">#161d20</color>
     <color name="roboto_calendar_selected_day_font">#FFFFFF</color>
     <color name="roboto_calendar_selected_day_background">#FD4A72</color>
     <color name="roboto_calendar_current_day_ring">#e6e7e8</color>
-    <color name="roboto_calendar_day_of_month_font">#849ba9</color>
+    <color name="roboto_calendar_day_of_the_month_font">#849ba9</color>
     <color name="roboto_calendar_circle_1">#e98885</color>
     <color name="roboto_calendar_circle_2">#55c6da</color>
 </resources>

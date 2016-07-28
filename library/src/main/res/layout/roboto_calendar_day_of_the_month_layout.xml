@@ -7,8 +7,8 @@
     android:tag="dayOfTheMonthLayout">
 
     <RelativeLayout
-        android:layout_width="@dimen/roboto_calendar_day_of_month_background_size"
-        android:layout_height="@dimen/roboto_calendar_day_of_month_background_size"
+        android:layout_width="@dimen/roboto_calendar_day_of_the_month_background_size"
+        android:layout_height="@dimen/roboto_calendar_day_of_the_month_background_size"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:background="@drawable/circle"
@@ -16,7 +16,7 @@
 
         <TextView
             android:id="@+id/textView"
-            style="@style/RobotoCalendarDayOfTheMonth"
+            style="@style/RobotoCalendarDayOfTheMonthText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
