@@ -9,4 +9,5 @@
     <color name="roboto_calendar_day_of_the_month_font">#849ba9</color>
     <color name="roboto_calendar_circle_1">#e98885</color>
     <color name="roboto_calendar_circle_2">#55c6da</color>
+    <color name="roboto_calendar_month_arrow">#55c6da</color>
 </resources>

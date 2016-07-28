@@ -13,6 +13,7 @@ android {
         versionCode globalConfiguration.getAt("androidVersionCode")
         versionName globalConfiguration.getAt("androidVersionName")
         vectorDrawables.useSupportLibrary = true
+        android.defaultConfig.vectorDrawables.useSupportLibrary = true
     }
 
     compileOptions {
