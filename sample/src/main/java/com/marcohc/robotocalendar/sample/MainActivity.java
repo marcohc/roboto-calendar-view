@@ -18,6 +18,8 @@ package com.marcohc.robotocalendar.sample;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.marcohc.robotocalendar.RobotoCalendarView;
@@ -47,6 +49,28 @@ public class MainActivity extends AppCompatActivity implements RobotoCalendarLis
 
         // Gets the calendar from the view
         robotoCalendarView = (RobotoCalendarView) findViewById(R.id.robotoCalendarPicker);
+        Button markDayButton = (Button) findViewById(R.id.markDayButton);
+        markDayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar calendar = Calendar.getInstance();
+                Random random = new Random(System.currentTimeMillis());
+                int style = random.nextInt(2);
+                int daySelected = random.nextInt(calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
+                calendar.set(Calendar.DAY_OF_MONTH, daySelected);
+
+                switch (style) {
+                    case 0:
+                        robotoCalendarView.markCircleImage1(calendar);
+                        break;
+                    case 1:
+                        robotoCalendarView.markCircleImage2(calendar);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
 
         // Set listener, in this case, the same activity
         robotoCalendarView.setRobotoCalendarListener(this);
@@ -65,25 +89,7 @@ public class MainActivity extends AppCompatActivity implements RobotoCalendarLis
 
     @Override
     public void onDaySelected(Calendar daySelectedCalendar) {
-
-        Toast.makeText(this, "onDaySelected!", Toast.LENGTH_SHORT).show();
-
-        // Mark that day with random colors
-        final Random random = new Random(System.currentTimeMillis());
-        final int style = random.nextInt(3);
-        switch (style) {
-            case 0:
-                robotoCalendarView.markFirstUnderline(daySelectedCalendar, RobotoCalendarView.BLUE_COLOR);
-                break;
-            case 1:
-                robotoCalendarView.markSecondUnderline(daySelectedCalendar, RobotoCalendarView.GREEN_COLOR);
-                break;
-            case 2:
-                robotoCalendarView.markFirstUnderline(daySelectedCalendar, RobotoCalendarView.RED_COLOR);
-                break;
-            default:
-                break;
-        }
+        Toast.makeText(this, "onDaySelected: " + daySelectedCalendar.getTime(), Toast.LENGTH_SHORT).show();
     }
 
     @Override

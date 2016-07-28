@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!-- General -->
-    <color name="roboto_calendar_circle">#e6e7e8</color>
     <color name="roboto_calendar_background">#FFFFFF</color>
-    <color name="roboto_calendar_green">#339DB5</color>
-    <color name="roboto_calendar_red">#e98885</color>
-    <color name="roboto_calendar_blue">#55c6da</color>
-    <color name="roboto_calendar_white">#FFFFFF</color>
-
-    <!-- Fonts -->
-    <color name="roboto_calendar_date_title">#2A99BC</color>
-    <color name="roboto_calendar_day_of_week">#161d20</color>
-    <color name="roboto_calendar_day_of_month">#849ba9</color>
-    <color name="roboto_calendar_current_day_of_month">#33b5e5</color>
-
+    <color name="roboto_calendar_month_font">#2A99BC</color>
+    <color name="roboto_calendar_day_of_week_font">#161d20</color>
+    <color name="roboto_calendar_selected_day_font">#FFFFFF</color>
+    <color name="roboto_calendar_selected_day_background">#FD4A72</color>
+    <color name="roboto_calendar_current_day_ring">#e6e7e8</color>
+    <color name="roboto_calendar_day_of_month_font">#849ba9</color>
+    <color name="roboto_calendar_circle_1">#e98885</color>
+    <color name="roboto_calendar_circle_2">#55c6da</color>
 </resources>

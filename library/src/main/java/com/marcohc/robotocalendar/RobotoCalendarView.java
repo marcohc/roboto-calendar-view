@@ -18,6 +18,7 @@ package com.marcohc.robotocalendar;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,10 +56,6 @@ public class RobotoCalendarView extends LinearLayout {
     private RobotoCalendarListener robotoCalendarListener;
     private Calendar currentCalendar;
     private Calendar lastSelectedDayCalendar;
-
-    public static final int RED_COLOR = R.color.roboto_calendar_red;
-    public static final int GREEN_COLOR = R.color.roboto_calendar_green;
-    public static final int BLUE_COLOR = R.color.roboto_calendar_blue;
 
     private static final String DAY_OF_THE_WEEK_TEXT = "dayOfTheWeekText";
     private static final String DAY_OF_THE_WEEK_LAYOUT = "dayOfTheWeekLayout";
@@ -179,7 +176,7 @@ public class RobotoCalendarView extends LinearLayout {
     // * Auxiliary UI methods
     // ************************************************************************************************************************************************************************
 
-    private void setMonthLayout() {
+    private void setUpMonthLayout() {
         String dateText = new DateFormatSymbols(Locale.getDefault()).getMonths()[currentCalendar.get(Calendar.MONTH)];
         dateText = dateText.substring(0, 1).toUpperCase() + dateText.subSequence(1, dateText.length());
         Calendar calendar = Calendar.getInstance();
@@ -190,7 +187,7 @@ public class RobotoCalendarView extends LinearLayout {
         }
     }
 
-    private void setWeekDaysLayout() {
+    private void setUpWeekDaysLayout() {
         TextView dayOfWeek;
         String dayOfTheWeekString;
         String[] weekDaysArray = new DateFormatSymbols(Locale.getDefault()).getWeekdays();
@@ -207,17 +204,7 @@ public class RobotoCalendarView extends LinearLayout {
         }
     }
 
-    private String checkSpecificLocales(String dayOfTheWeekString, int i) {
-        // Set Wednesday as "X" in Spanish Locale.getDefault()
-        if (i == 4 && Locale.getDefault().getCountry().equals("ES")) {
-            dayOfTheWeekString = "X";
-        } else {
-            dayOfTheWeekString = dayOfTheWeekString.substring(0, 1).toUpperCase();
-        }
-        return dayOfTheWeekString;
-    }
-
-    private void setDaysOfMonthLayout() {
+    private void setUpDaysOfMonthLayout() {
 
         TextView dayOfMonthText;
         View circleImage1;
@@ -240,14 +227,14 @@ public class RobotoCalendarView extends LinearLayout {
             // Apply styles
             dayOfMonthText.setBackgroundResource(android.R.color.transparent);
             dayOfMonthText.setTypeface(null, Typeface.NORMAL);
-            dayOfMonthText.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_day_of_month));
+            dayOfMonthText.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_day_of_month_font));
             dayOfMonthContainer.setBackgroundResource(android.R.color.transparent);
             dayOfMonthContainer.setOnClickListener(null);
             dayOfMonthBackground.setBackgroundResource(android.R.color.transparent);
         }
     }
 
-    private void setDaysInCalendar() {
+    private void setUpDaysInCalendar() {
         Calendar auxCalendar = Calendar.getInstance(Locale.getDefault());
         auxCalendar.setTime(currentCalendar.getTime());
         auxCalendar.set(Calendar.DAY_OF_MONTH, 1);
@@ -279,29 +266,22 @@ public class RobotoCalendarView extends LinearLayout {
 //        }
     }
 
-    private void clearDayOfTheMonthStyle(Calendar calendar) {
-        if (calendar != null) {
-            ViewGroup dayOfMonthBackground = getDayOfMonthBackground(calendar);
-            dayOfMonthBackground.setBackgroundResource(android.R.color.transparent);
-        }
-    }
-
     private void markDayAsCurrentDay() {
         // If it's the current month, mark current day
         Calendar nowCalendar = Calendar.getInstance();
         if (nowCalendar.get(Calendar.YEAR) == currentCalendar.get(Calendar.YEAR) && nowCalendar.get(Calendar.MONTH) == currentCalendar.get(Calendar.MONTH)) {
             Calendar currentCalendar = Calendar.getInstance();
             currentCalendar.setTime(nowCalendar.getTime());
-            TextView dayOfMonth = getDayOfMonthText(currentCalendar);
-            dayOfMonth.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_current_day_of_month));
-            dayOfMonth.setTypeface(null, Typeface.BOLD);
+
+            ViewGroup dayOfMonthBackground = getDayOfMonthBackground(currentCalendar);
+            dayOfMonthBackground.setBackgroundResource(R.drawable.ring);
         }
     }
 
     private void markDayAsSelectedDay(Calendar calendar) {
 
         // Clear previous current day mark
-        clearDayOfTheMonthStyle(lastSelectedDayCalendar);
+        clearSelectedDay(lastSelectedDayCalendar);
 
         // Store current values as last values
         lastSelectedDayCalendar = calendar;
@@ -309,71 +289,57 @@ public class RobotoCalendarView extends LinearLayout {
         // Mark current day as selected
         ViewGroup dayOfMonthBackground = getDayOfMonthBackground(calendar);
         dayOfMonthBackground.setBackgroundResource(R.drawable.circle);
+
+        TextView dayOfMonth = getDayOfMonthText(calendar);
+        dayOfMonth.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_selected_day_font));
+
+        ImageView circleImage1 = getCircleImage1(calendar);
+        ImageView circleImage2 = getCircleImage2(calendar);
+        if (circleImage1.getVisibility() == VISIBLE) {
+            DrawableCompat.setTint(circleImage1.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_selected_day_font));
+        }
+
+        if (circleImage2.getVisibility() == VISIBLE) {
+            DrawableCompat.setTint(circleImage2.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_selected_day_font));
+        }
     }
 
-    // ************************************************************************************************************************************************************************
-    // * Getter methods
-    // ************************************************************************************************************************************************************************
+    private void clearSelectedDay(Calendar calendar) {
+        if (calendar != null) {
 
-    private ViewGroup getDayOfMonthBackground(Calendar currentCalendar) {
-        return (ViewGroup) getView(DAY_OF_THE_MONTH_BACKGROUND, currentCalendar);
-    }
+            ViewGroup dayOfMonthBackground = getDayOfMonthBackground(calendar);
 
-    private TextView getDayOfMonthText(Calendar currentCalendar) {
-        return (TextView) getView(DAY_OF_THE_MONTH_TEXT, currentCalendar);
-    }
-
-    private View getCircleImage1(Calendar currentCalendar) {
-        return getView(DAY_OF_THE_MONTH_CIRCLE_IMAGE_1, currentCalendar);
-    }
-
-    private View getCircleImage2(Calendar currentCalendar) {
-        return getView(DAY_OF_THE_MONTH_CIRCLE_IMAGE_2, currentCalendar);
-    }
-
-    private int getDayIndexByDate(Calendar currentCalendar) {
-        int monthOffset = getMonthOffset(currentCalendar);
-        int currentDay = currentCalendar.get(Calendar.DAY_OF_MONTH);
-        return currentDay + monthOffset;
-    }
-
-    private int getMonthOffset(Calendar currentCalendar) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(currentCalendar.getTime());
-        calendar.set(Calendar.DAY_OF_MONTH, 1);
-        int firstDayWeekPosition = calendar.getFirstDayOfWeek();
-        int dayPosition = calendar.get(Calendar.DAY_OF_WEEK);
-
-        if (firstDayWeekPosition == 1) {
-            return dayPosition - 1;
-        } else {
-
-            if (dayPosition == 1) {
-                return 6;
+            // If it's today, keep the current day style
+            Calendar nowCalendar = Calendar.getInstance();
+            if (nowCalendar.get(Calendar.YEAR) == lastSelectedDayCalendar.get(Calendar.YEAR) && nowCalendar.get(Calendar.DAY_OF_YEAR) == lastSelectedDayCalendar.get(Calendar.DAY_OF_YEAR)) {
+                dayOfMonthBackground.setBackgroundResource(R.drawable.ring);
             } else {
-                return dayPosition - 2;
+                dayOfMonthBackground.setBackgroundResource(android.R.color.transparent);
+            }
+
+            TextView dayOfMonth = getDayOfMonthText(calendar);
+            dayOfMonth.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_day_of_month_font));
+
+            ImageView circleImage1 = getCircleImage1(calendar);
+            ImageView circleImage2 = getCircleImage2(calendar);
+            if (circleImage1.getVisibility() == VISIBLE) {
+                DrawableCompat.setTint(circleImage1.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_circle_1));
+            }
+
+            if (circleImage2.getVisibility() == VISIBLE) {
+                DrawableCompat.setTint(circleImage2.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_circle_2));
             }
         }
     }
 
-    private int getWeekIndex(int weekIndex, Calendar currentCalendar) {
-        int firstDayWeekPosition = currentCalendar.getFirstDayOfWeek();
-
-        if (firstDayWeekPosition == 1) {
-            return weekIndex;
+    private String checkSpecificLocales(String dayOfTheWeekString, int i) {
+        // Set Wednesday as "X" in Spanish Locale.getDefault()
+        if (i == 4 && Locale.getDefault().getCountry().equals("ES")) {
+            dayOfTheWeekString = "X";
         } else {
-
-            if (weekIndex == 1) {
-                return 7;
-            } else {
-                return weekIndex - 1;
-            }
+            dayOfTheWeekString = dayOfTheWeekString.substring(0, 1).toUpperCase();
         }
-    }
-
-    private View getView(String key, Calendar currentCalendar) {
-        int index = getDayIndexByDate(currentCalendar);
-        return rootView.findViewWithTag(key + index);
+        return dayOfTheWeekString;
     }
 
     // ************************************************************************************************************************************************************************
@@ -394,10 +360,10 @@ public class RobotoCalendarView extends LinearLayout {
      * Update the calendar view
      */
     public void updateView() {
-        setMonthLayout();
-        setWeekDaysLayout();
-        setDaysOfMonthLayout();
-        setDaysInCalendar();
+        setUpMonthLayout();
+        setUpWeekDaysLayout();
+        setUpDaysOfMonthLayout();
+        setUpDaysInCalendar();
         markDayAsCurrentDay();
     }
 
@@ -412,16 +378,16 @@ public class RobotoCalendarView extends LinearLayout {
         updateView();
     }
 
-    public void markFirstUnderline(Calendar calendar, int colorId) {
-        View underline = getCircleImage1(calendar);
-        underline.setVisibility(View.VISIBLE);
-        underline.setBackgroundResource(colorId);
+    public void markCircleImage1(Calendar calendar) {
+        ImageView circleImage1 = getCircleImage1(calendar);
+        circleImage1.setVisibility(View.VISIBLE);
+        DrawableCompat.setTint(circleImage1.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_circle_1));
     }
 
-    public void markSecondUnderline(Calendar calendar, int colorId) {
-        View underline = getCircleImage2(calendar);
-        underline.setVisibility(View.VISIBLE);
-        underline.setBackgroundResource(colorId);
+    public void markCircleImage2(Calendar calendar) {
+        ImageView circleImage2 = getCircleImage2(calendar);
+        circleImage2.setVisibility(View.VISIBLE);
+        DrawableCompat.setTint(circleImage2.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_circle_2));
     }
 
     public void showDateTitle(boolean show) {
@@ -478,4 +444,69 @@ public class RobotoCalendarView extends LinearLayout {
             }
         }
     };
+
+    // ************************************************************************************************************************************************************************
+    // * Getter methods
+    // ************************************************************************************************************************************************************************
+
+    private ViewGroup getDayOfMonthBackground(Calendar currentCalendar) {
+        return (ViewGroup) getView(DAY_OF_THE_MONTH_BACKGROUND, currentCalendar);
+    }
+
+    private TextView getDayOfMonthText(Calendar currentCalendar) {
+        return (TextView) getView(DAY_OF_THE_MONTH_TEXT, currentCalendar);
+    }
+
+    private ImageView getCircleImage1(Calendar currentCalendar) {
+        return (ImageView) getView(DAY_OF_THE_MONTH_CIRCLE_IMAGE_1, currentCalendar);
+    }
+
+    private ImageView getCircleImage2(Calendar currentCalendar) {
+        return (ImageView) getView(DAY_OF_THE_MONTH_CIRCLE_IMAGE_2, currentCalendar);
+    }
+
+    private int getDayIndexByDate(Calendar currentCalendar) {
+        int monthOffset = getMonthOffset(currentCalendar);
+        int currentDay = currentCalendar.get(Calendar.DAY_OF_MONTH);
+        return currentDay + monthOffset;
+    }
+
+    private int getMonthOffset(Calendar currentCalendar) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(currentCalendar.getTime());
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        int firstDayWeekPosition = calendar.getFirstDayOfWeek();
+        int dayPosition = calendar.get(Calendar.DAY_OF_WEEK);
+
+        if (firstDayWeekPosition == 1) {
+            return dayPosition - 1;
+        } else {
+
+            if (dayPosition == 1) {
+                return 6;
+            } else {
+                return dayPosition - 2;
+            }
+        }
+    }
+
+    private int getWeekIndex(int weekIndex, Calendar currentCalendar) {
+        int firstDayWeekPosition = currentCalendar.getFirstDayOfWeek();
+
+        if (firstDayWeekPosition == 1) {
+            return weekIndex;
+        } else {
+
+            if (weekIndex == 1) {
+                return 7;
+            } else {
+                return weekIndex - 1;
+            }
+        }
+    }
+
+    private View getView(String key, Calendar currentCalendar) {
+        int index = getDayIndexByDate(currentCalendar);
+        return rootView.findViewWithTag(key + index);
+    }
 }
