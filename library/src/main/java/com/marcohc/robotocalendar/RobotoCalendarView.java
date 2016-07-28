@@ -92,7 +92,7 @@ public class RobotoCalendarView extends LinearLayout {
         rootView = inflate.inflate(R.layout.roboto_calendar_picker_layout, this, true);
         findViewsById(rootView);
         setUpEventListeners();
-        setUpView();
+        setUpCalligraphy();
         return rootView;
     }
 
@@ -161,12 +161,11 @@ public class RobotoCalendarView extends LinearLayout {
         });
     }
 
-    private void setUpView() {
+    private void setUpCalligraphy() {
         // Initialize calendar for current month
         Calendar currentCalendar = Calendar.getInstance();
         setCalendar(currentCalendar);
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/Roboto-Regular.ttf")
                 .setFontAttrId(R.attr.fontPath)
                 .build()
         );

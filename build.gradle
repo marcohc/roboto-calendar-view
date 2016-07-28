@@ -20,7 +20,7 @@ allprojects {
         androidTargetSdkVersion = 24
         androidCompileSdkVersion = 24
         androidVersionCode = 1
-        androidVersionName = "3.0.2"
+        androidVersionName = "3.0.3"
     }
 
     repositories {

@@ -20,8 +20,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:tag="dayOfTheWeekText1"
-            android:text="Mon"
-            android:textColor="@color/roboto_calendar_day_of_the_week_font" />
+            android:text="Mon" />
 
     </LinearLayout>
 
@@ -39,8 +38,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:tag="dayOfTheWeekText2"
-            android:text="Tue"
-            android:textColor="@color/roboto_calendar_day_of_the_week_font" />
+            android:text="Tue" />
 
     </LinearLayout>
 
@@ -58,8 +56,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:tag="dayOfTheWeekText3"
-            android:text="Wed"
-            android:textColor="@color/roboto_calendar_day_of_the_week_font" />
+            android:text="Wed" />
 
     </LinearLayout>
 
@@ -77,8 +74,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:tag="dayOfTheWeekText4"
-            android:text="Thu"
-            android:textColor="@color/roboto_calendar_day_of_the_week_font" />
+            android:text="Thu" />
 
     </LinearLayout>
 
@@ -96,8 +92,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:tag="dayOfTheWeekText5"
-            android:text="Fri"
-            android:textColor="@color/roboto_calendar_day_of_the_week_font" />
+            android:text="Fri" />
 
     </LinearLayout>
 
@@ -115,8 +110,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:tag="dayOfTheWeekText6"
-            android:text="Sat"
-            android:textColor="@color/roboto_calendar_day_of_the_week_font" />
+            android:text="Sat" />
 
     </LinearLayout>
 
@@ -134,8 +128,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:tag="dayOfTheWeekText7"
-            android:text="Sun"
-            android:textColor="@color/roboto_calendar_day_of_the_week_font" />
+            android:text="Sun" />
 
     </LinearLayout>
 

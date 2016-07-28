@@ -35,7 +35,6 @@
             android:showDividers="middle">
 
             <ImageView
-                android:id="@+id/imageView2"
                 android:layout_width="@dimen/roboto_calendar_circle_size"
                 android:layout_height="@dimen/roboto_calendar_circle_size"
                 android:src="@drawable/circle"
@@ -44,7 +43,6 @@
                 android:visibility="visible" />
 
             <ImageView
-                android:id="@+id/imageView"
                 android:layout_width="@dimen/roboto_calendar_circle_size"
                 android:layout_height="@dimen/roboto_calendar_circle_size"
                 android:src="@drawable/circle"
