@@ -8,7 +8,7 @@ Sample
 
 A sample application is available inside of the library
 
-![screenshot](http://i68.tinypic.com/25jibnq.jpg)
+![screenshot](http://i63.tinypic.com/vnjdw5.jpg)
 
 Compatibility
 -------------
