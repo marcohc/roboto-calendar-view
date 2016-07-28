@@ -8,24 +8,26 @@ Sample
 
 A sample application is available inside of the library
 
-![screenshot](http://i61.tinypic.com/2i9jy3q.png)
+![screenshot](http://i68.tinypic.com/25jibnq.jpg)
 
 Compatibility
 -------------
 
-This library is compatible from API 11.
+This library is compatible from API 14.
 
 Usage
 -----
 
 Take a look of the sample Activity.
 
-Override styles for fonts, sizes and color modifications.
+You can override any style and customize your calendar.
 
 Gradle
 ------
 
 RobotoCalendarView uses the awesome tool [Jitpack] (https://jitpack.io/#marcohc/robotocalendarview)
+
+This library uses the awesome tool [![](https://jitpack.io/v/marcohc/robotocalendarview.svg)](https://jitpack.io/#marcohc/robotocalendarview)
 
 Add the repository to your general build.gradle:
 
@@ -40,13 +42,13 @@ repositories {
 And then add the library in your specific project build.gradle:
 
 ``` xml
-    compile 'com.github.marcohc:robotocalendarview:<last_release>'
+    compile 'com.github.marcohc:robotocalendarview:<release>'
 ```
 
 Developed By
 ------------
 
-* Marco Hernaiz Cao - <marcohernaizcao@gmail.com>
+* Marco Hernaiz Cao - <marco.hernaiz.cao@gmail.com>
  
 Credits
 -------
@@ -56,7 +58,7 @@ Credits
 License
 -------
 
-    Copyright 2015 Marco Hernaiz Cao
+    Copyright 2016 Marco Hernaiz Cao
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
