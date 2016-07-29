@@ -205,64 +205,67 @@ public class RobotoCalendarView extends LinearLayout {
 
     private void setUpDaysOfMonthLayout() {
 
-        TextView dayOfMonthText;
+        TextView dayOfTheMonthText;
         View circleImage1;
         View circleImage2;
-        ViewGroup dayOfMonthContainer;
-        ViewGroup dayOfMonthBackground;
+        ViewGroup dayOfTheMonthContainer;
+        ViewGroup dayOfTheMonthBackground;
 
         for (int i = 1; i < 43; i++) {
 
-            dayOfMonthContainer = (ViewGroup) rootView.findViewWithTag(DAY_OF_THE_MONTH_LAYOUT + i);
-            dayOfMonthBackground = (ViewGroup) rootView.findViewWithTag(DAY_OF_THE_MONTH_BACKGROUND + i);
-            dayOfMonthText = (TextView) rootView.findViewWithTag(DAY_OF_THE_MONTH_TEXT + i);
+            dayOfTheMonthContainer = (ViewGroup) rootView.findViewWithTag(DAY_OF_THE_MONTH_LAYOUT + i);
+            dayOfTheMonthBackground = (ViewGroup) rootView.findViewWithTag(DAY_OF_THE_MONTH_BACKGROUND + i);
+            dayOfTheMonthText = (TextView) rootView.findViewWithTag(DAY_OF_THE_MONTH_TEXT + i);
             circleImage1 = rootView.findViewWithTag(DAY_OF_THE_MONTH_CIRCLE_IMAGE_1 + i);
             circleImage2 = rootView.findViewWithTag(DAY_OF_THE_MONTH_CIRCLE_IMAGE_2 + i);
 
-            dayOfMonthText.setVisibility(View.INVISIBLE);
+            dayOfTheMonthText.setVisibility(View.INVISIBLE);
             circleImage1.setVisibility(View.GONE);
             circleImage2.setVisibility(View.GONE);
 
             // Apply styles
-            dayOfMonthText.setBackgroundResource(android.R.color.transparent);
-            dayOfMonthText.setTypeface(null, Typeface.NORMAL);
-            dayOfMonthText.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_day_of_the_month_font));
-            dayOfMonthContainer.setBackgroundResource(android.R.color.transparent);
-            dayOfMonthContainer.setOnClickListener(null);
-            dayOfMonthBackground.setBackgroundResource(android.R.color.transparent);
+            dayOfTheMonthText.setBackgroundResource(android.R.color.transparent);
+            dayOfTheMonthText.setTypeface(null, Typeface.NORMAL);
+            dayOfTheMonthText.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_day_of_the_month_font));
+            dayOfTheMonthContainer.setBackgroundResource(android.R.color.transparent);
+            dayOfTheMonthContainer.setOnClickListener(null);
+            dayOfTheMonthBackground.setBackgroundResource(android.R.color.transparent);
         }
     }
 
     private void setUpDaysInCalendar() {
+
         Calendar auxCalendar = Calendar.getInstance(Locale.getDefault());
         auxCalendar.setTime(currentCalendar.getTime());
         auxCalendar.set(Calendar.DAY_OF_MONTH, 1);
         int firstDayOfMonth = auxCalendar.get(Calendar.DAY_OF_WEEK);
-        TextView dayOfMonthText;
-        ViewGroup dayOfMonthContainer;
+        TextView dayOfTheMonthText;
+        ViewGroup dayOfTheMonthContainer;
+        ViewGroup dayOfTheMonthLayout;
 
-        // Calculate dayOfMonthIndex
-        int dayOfMonthIndex = getWeekIndex(firstDayOfMonth, auxCalendar);
+        // Calculate dayOfTheMonthIndex
+        int dayOfTheMonthIndex = getWeekIndex(firstDayOfMonth, auxCalendar);
 
-        for (int i = 1; i <= auxCalendar.getActualMaximum(Calendar.DAY_OF_MONTH); i++, dayOfMonthIndex++) {
-            dayOfMonthContainer = (ViewGroup) rootView.findViewWithTag(DAY_OF_THE_MONTH_LAYOUT + dayOfMonthIndex);
-            dayOfMonthText = (TextView) rootView.findViewWithTag(DAY_OF_THE_MONTH_TEXT + dayOfMonthIndex);
-            if (dayOfMonthText == null) {
+        for (int i = 1; i <= auxCalendar.getActualMaximum(Calendar.DAY_OF_MONTH); i++, dayOfTheMonthIndex++) {
+            dayOfTheMonthContainer = (ViewGroup) rootView.findViewWithTag(DAY_OF_THE_MONTH_LAYOUT + dayOfTheMonthIndex);
+            dayOfTheMonthText = (TextView) rootView.findViewWithTag(DAY_OF_THE_MONTH_TEXT + dayOfTheMonthIndex);
+            if (dayOfTheMonthText == null) {
                 break;
             }
-            dayOfMonthContainer.setOnClickListener(onDayOfMonthClickListener);
-            dayOfMonthText.setVisibility(View.VISIBLE);
-            dayOfMonthText.setText(String.valueOf(i));
+            dayOfTheMonthContainer.setOnClickListener(onDayOfMonthClickListener);
+            dayOfTheMonthText.setVisibility(View.VISIBLE);
+            dayOfTheMonthText.setText(String.valueOf(i));
         }
 
-//        // If the last week row has no visible days, hide it or show it in case
-//        ViewGroup weekRow = (ViewGroup) view.findViewWithTag("weekRow7");
-//        dayOfMonthText = (TextView) view.findViewWithTag("dayOfMonthText36");
-//        if (dayOfMonthText.getVisibility() == INVISIBLE) {
-//            weekRow.setVisibility(GONE);
-//        } else {
-//            weekRow.setVisibility(VISIBLE);
-//        }
+        for (int i = 36; i < 43; i++) {
+            dayOfTheMonthText = (TextView) rootView.findViewWithTag(DAY_OF_THE_MONTH_TEXT + i);
+            dayOfTheMonthLayout = (ViewGroup) rootView.findViewWithTag(DAY_OF_THE_MONTH_LAYOUT + i);
+            if (dayOfTheMonthText.getVisibility() == INVISIBLE) {
+                dayOfTheMonthLayout.setVisibility(GONE);
+            } else {
+                dayOfTheMonthLayout.setVisibility(VISIBLE);
+            }
+        }
     }
 
     private void markDayAsCurrentDay() {
@@ -272,8 +275,8 @@ public class RobotoCalendarView extends LinearLayout {
             Calendar currentCalendar = Calendar.getInstance();
             currentCalendar.setTime(nowCalendar.getTime());
 
-            ViewGroup dayOfMonthBackground = getDayOfMonthBackground(currentCalendar);
-            dayOfMonthBackground.setBackgroundResource(R.drawable.ring);
+            ViewGroup dayOfTheMonthBackground = getDayOfMonthBackground(currentCalendar);
+            dayOfTheMonthBackground.setBackgroundResource(R.drawable.ring);
         }
     }
 
@@ -286,11 +289,11 @@ public class RobotoCalendarView extends LinearLayout {
         lastSelectedDayCalendar = calendar;
 
         // Mark current day as selected
-        ViewGroup dayOfMonthBackground = getDayOfMonthBackground(calendar);
-        dayOfMonthBackground.setBackgroundResource(R.drawable.circle);
+        ViewGroup dayOfTheMonthBackground = getDayOfMonthBackground(calendar);
+        dayOfTheMonthBackground.setBackgroundResource(R.drawable.circle);
 
-        TextView dayOfMonth = getDayOfMonthText(calendar);
-        dayOfMonth.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_selected_day_font));
+        TextView dayOfTheMonth = getDayOfMonthText(calendar);
+        dayOfTheMonth.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_selected_day_font));
 
         ImageView circleImage1 = getCircleImage1(calendar);
         ImageView circleImage2 = getCircleImage2(calendar);
@@ -306,18 +309,18 @@ public class RobotoCalendarView extends LinearLayout {
     private void clearSelectedDay(Calendar calendar) {
         if (calendar != null) {
 
-            ViewGroup dayOfMonthBackground = getDayOfMonthBackground(calendar);
+            ViewGroup dayOfTheMonthBackground = getDayOfMonthBackground(calendar);
 
             // If it's today, keep the current day style
             Calendar nowCalendar = Calendar.getInstance();
             if (nowCalendar.get(Calendar.YEAR) == lastSelectedDayCalendar.get(Calendar.YEAR) && nowCalendar.get(Calendar.DAY_OF_YEAR) == lastSelectedDayCalendar.get(Calendar.DAY_OF_YEAR)) {
-                dayOfMonthBackground.setBackgroundResource(R.drawable.ring);
+                dayOfTheMonthBackground.setBackgroundResource(R.drawable.ring);
             } else {
-                dayOfMonthBackground.setBackgroundResource(android.R.color.transparent);
+                dayOfTheMonthBackground.setBackgroundResource(android.R.color.transparent);
             }
 
-            TextView dayOfMonth = getDayOfMonthText(calendar);
-            dayOfMonth.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_day_of_the_month_font));
+            TextView dayOfTheMonth = getDayOfMonthText(calendar);
+            dayOfTheMonth.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_day_of_the_month_font));
 
             ImageView circleImage1 = getCircleImage1(calendar);
             ImageView circleImage2 = getCircleImage2(calendar);
@@ -423,15 +426,15 @@ public class RobotoCalendarView extends LinearLayout {
         public void onClick(View view) {
 
             // Extract day selected
-            ViewGroup dayOfMonthContainer = (ViewGroup) view;
-            String tagId = (String) dayOfMonthContainer.getTag();
+            ViewGroup dayOfTheMonthContainer = (ViewGroup) view;
+            String tagId = (String) dayOfTheMonthContainer.getTag();
             tagId = tagId.substring(DAY_OF_THE_MONTH_LAYOUT.length(), tagId.length());
-            TextView dayOfMonthText = (TextView) view.findViewWithTag(DAY_OF_THE_MONTH_TEXT + tagId);
+            TextView dayOfTheMonthText = (TextView) view.findViewWithTag(DAY_OF_THE_MONTH_TEXT + tagId);
 
             // Extract the day from the text
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(currentCalendar.getTime());
-            calendar.set(Calendar.DAY_OF_MONTH, Integer.valueOf(dayOfMonthText.getText().toString()));
+            calendar.set(Calendar.DAY_OF_MONTH, Integer.valueOf(dayOfTheMonthText.getText().toString()));
 
             markDayAsSelectedDay(calendar);
 

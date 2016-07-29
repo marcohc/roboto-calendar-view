@@ -10,7 +10,6 @@
     <style name="RobotoCalendarMonthText">
         <item name="android:textSize">@dimen/roboto_calendar_month_font</item>
         <item name="android:textColor">@color/roboto_calendar_month_font</item>
-        <item name="fontPath">fonts/Roboto-Regular.ttf</item>
     </style>
 
     <style name="RobotoCalendarMonthArrow">
@@ -20,13 +19,11 @@
     <style name="RobotoCalendarDayOfTheWeekText">
         <item name="android:textSize">@dimen/roboto_calendar_day_of_week_font</item>
         <item name="android:textColor">@color/roboto_calendar_day_of_the_month_font</item>
-        <item name="fontPath">fonts/Roboto-Regular.ttf</item>
     </style>
 
     <style name="RobotoCalendarDayOfTheMonthText">
         <item name="android:textSize">@dimen/roboto_calendar_day_of_the_month_font</item>
         <item name="android:textColor">@color/roboto_calendar_day_of_the_month_font</item>
-        <item name="fontPath">fonts/Roboto-Light.ttf</item>
     </style>
 
 </resources>
