@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 Marco Hernaiz Cao
+ * Copyright (C) 2016 Marco Hernaiz Cao
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -253,6 +253,7 @@ public class RobotoCalendarView extends LinearLayout {
                 break;
             }
             dayOfTheMonthContainer.setOnClickListener(onDayOfMonthClickListener);
+            dayOfTheMonthContainer.setOnLongClickListener(onDayOfMonthLongClickListener);
             dayOfTheMonthText.setVisibility(View.VISIBLE);
             dayOfTheMonthText.setText(String.valueOf(i));
         }
@@ -406,7 +407,9 @@ public class RobotoCalendarView extends LinearLayout {
 
     public interface RobotoCalendarListener {
 
-        void onDaySelected(Calendar daySelectedCalendar);
+        void onDayClick(Calendar daySelectedCalendar);
+
+        void onDayLongClick(Calendar daySelectedCalendar);
 
         void onRightButtonClick();
 
@@ -442,8 +445,35 @@ public class RobotoCalendarView extends LinearLayout {
             if (robotoCalendarListener == null) {
                 throw new IllegalStateException("You must assign a valid RobotoCalendarListener first!");
             } else {
-                robotoCalendarListener.onDaySelected(calendar);
+                robotoCalendarListener.onDayClick(calendar);
             }
+        }
+    };
+
+    private OnLongClickListener onDayOfMonthLongClickListener = new OnLongClickListener() {
+        @Override
+        public boolean onLongClick(View view) {
+
+            // Extract day selected
+            ViewGroup dayOfTheMonthContainer = (ViewGroup) view;
+            String tagId = (String) dayOfTheMonthContainer.getTag();
+            tagId = tagId.substring(DAY_OF_THE_MONTH_LAYOUT.length(), tagId.length());
+            TextView dayOfTheMonthText = (TextView) view.findViewWithTag(DAY_OF_THE_MONTH_TEXT + tagId);
+
+            // Extract the day from the text
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(currentCalendar.getTime());
+            calendar.set(Calendar.DAY_OF_MONTH, Integer.valueOf(dayOfTheMonthText.getText().toString()));
+
+            markDayAsSelectedDay(calendar);
+
+            // Fire event
+            if (robotoCalendarListener == null) {
+                throw new IllegalStateException("You must assign a valid RobotoCalendarListener first!");
+            } else {
+                robotoCalendarListener.onDayLongClick(calendar);
+            }
+            return true;
         }
     };
 
