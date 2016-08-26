@@ -6,7 +6,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.2'
+        classpath 'com.android.tools.build:gradle:2.1.3'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
     }
 }
@@ -20,7 +20,7 @@ allprojects {
         androidTargetSdkVersion = 24
         androidCompileSdkVersion = 24
         androidVersionCode = 1
-        androidVersionName = "3.1.0"
+        androidVersionName = "3.1.1"
     }
 
     repositories {

@@ -436,7 +436,8 @@ public class RobotoCalendarView extends LinearLayout {
 
             // Extract the day from the text
             Calendar calendar = Calendar.getInstance();
-            calendar.setTime(currentCalendar.getTime());
+            calendar.set(Calendar.YEAR, currentCalendar.get(Calendar.YEAR));
+            calendar.set(Calendar.MONTH, currentCalendar.get(Calendar.MONTH));
             calendar.set(Calendar.DAY_OF_MONTH, Integer.valueOf(dayOfTheMonthText.getText().toString()));
 
             markDayAsSelectedDay(calendar);
@@ -462,7 +463,8 @@ public class RobotoCalendarView extends LinearLayout {
 
             // Extract the day from the text
             Calendar calendar = Calendar.getInstance();
-            calendar.setTime(currentCalendar.getTime());
+            calendar.set(Calendar.YEAR, currentCalendar.get(Calendar.YEAR));
+            calendar.set(Calendar.MONTH, currentCalendar.get(Calendar.MONTH));
             calendar.set(Calendar.DAY_OF_MONTH, Integer.valueOf(dayOfTheMonthText.getText().toString()));
 
             markDayAsSelectedDay(calendar);
