@@ -89,13 +89,13 @@ public class MainActivity extends AppCompatActivity implements RobotoCalendarLis
     }
 
     @Override
-    public void onDayClick(Calendar daySelectedCalendar) {
-        Toast.makeText(this, "onDayClick: " + daySelectedCalendar.getTime(), Toast.LENGTH_SHORT).show();
+    public void onDayClick(Date date) {
+        Toast.makeText(this, "onDayClick: " + date, Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void onDayLongClick(Calendar daySelectedCalendar) {
-        Toast.makeText(this, "onDayLongClick: " + daySelectedCalendar.getTime(), Toast.LENGTH_SHORT).show();
+    public void onDayLongClick(Date date) {
+        Toast.makeText(this, "onDayLongClick: " + date, Toast.LENGTH_SHORT).show();
     }
 
     @Override
