@@ -27,6 +27,7 @@ import com.marcohc.robotocalendar.RobotoCalendarView.RobotoCalendarListener;
 import com.marcohc.robotocalendarsample.R;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -48,8 +49,8 @@ public class MainActivity extends AppCompatActivity implements RobotoCalendarLis
         setContentView(R.layout.activity_main);
 
         // Gets the calendar from the view
-        robotoCalendarView = (RobotoCalendarView) findViewById(R.id.robotoCalendarPicker);
-        Button markDayButton = (Button) findViewById(R.id.markDayButton);
+        robotoCalendarView = findViewById(R.id.robotoCalendarPicker);
+        Button markDayButton = findViewById(R.id.markDayButton);
         markDayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements RobotoCalendarLis
 
         robotoCalendarView.showDateTitle(true);
 
-        robotoCalendarView.updateView();
+        robotoCalendarView.setDate(new Date());
     }
 
     @Override

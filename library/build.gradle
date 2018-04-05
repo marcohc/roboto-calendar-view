@@ -4,14 +4,14 @@ apply plugin: 'com.github.dcendents.android-maven'
 android {
 
     def globalConfiguration = rootProject.extensions.getByName("ext")
-    compileSdkVersion globalConfiguration.getAt("androidCompileSdkVersion")
-    buildToolsVersion globalConfiguration.getAt("androidBuildToolsVersion")
+    compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
+    buildToolsVersion globalConfiguration["androidBuildToolsVersion"]
 
     defaultConfig {
-        minSdkVersion globalConfiguration.getAt("androidMinSdkVersion")
-        targetSdkVersion globalConfiguration.getAt("androidTargetSdkVersion")
-        versionCode globalConfiguration.getAt("androidVersionCode")
-        versionName globalConfiguration.getAt("androidVersionName")
+        minSdkVersion globalConfiguration["androidMinSdkVersion"]
+        targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
+        versionCode globalConfiguration["androidVersionCode"]
+        versionName globalConfiguration["androidVersionName"]
         vectorDrawables.useSupportLibrary = true
         android.defaultConfig.vectorDrawables.useSupportLibrary = true
     }
@@ -29,6 +29,5 @@ android {
 }
 
 dependencies {
-    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
-    compile 'com.android.support:appcompat-v7:24.2.0'
+    implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
 }
