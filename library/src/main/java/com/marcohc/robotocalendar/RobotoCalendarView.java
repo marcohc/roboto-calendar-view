@@ -17,6 +17,8 @@ package com.marcohc.robotocalendar;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
@@ -57,7 +59,9 @@ public class RobotoCalendarView extends LinearLayout {
     private View rootView;
     private ViewGroup robotoCalendarMonthLayout;
     private RobotoCalendarListener robotoCalendarListener;
-    private Calendar currentCalendar;
+    @NonNull
+    private Calendar currentCalendar = Calendar.getInstance();
+    @Nullable
     private Calendar lastSelectedDayCalendar;
     private final OnClickListener onDayOfMonthClickListener = new OnClickListener() {
         @Override
@@ -184,22 +188,53 @@ public class RobotoCalendarView extends LinearLayout {
      *
      * @param date, the selected date
      */
-    public void setDate(Date date) {
+    public void setDate(@NonNull Date date) {
         currentCalendar.setTime(date);
         updateView();
+    }
+
+    public void clearSelectedDay() {
+        if (lastSelectedDayCalendar != null) {
+            ViewGroup dayOfTheMonthBackground = getDayOfMonthBackground(lastSelectedDayCalendar);
+
+            // If it's today, keep the current day style
+            Calendar nowCalendar = Calendar.getInstance();
+            if (nowCalendar.get(Calendar.YEAR) == lastSelectedDayCalendar.get(Calendar.YEAR) && nowCalendar.get(Calendar.DAY_OF_YEAR) == lastSelectedDayCalendar.get(Calendar.DAY_OF_YEAR)) {
+                dayOfTheMonthBackground.setBackgroundResource(R.drawable.ring);
+            } else {
+                dayOfTheMonthBackground.setBackgroundResource(android.R.color.transparent);
+            }
+
+            TextView dayOfTheMonth = getDayOfMonthText(lastSelectedDayCalendar);
+            dayOfTheMonth.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_day_of_the_month_font));
+
+            ImageView circleImage1 = getCircleImage1(lastSelectedDayCalendar);
+            ImageView circleImage2 = getCircleImage2(lastSelectedDayCalendar);
+            if (circleImage1.getVisibility() == VISIBLE) {
+                DrawableCompat.setTint(circleImage1.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_circle_1));
+            }
+
+            if (circleImage2.getVisibility() == VISIBLE) {
+                DrawableCompat.setTint(circleImage2.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_circle_2));
+            }
+        }
     }
 
     public void setShortWeekDays(boolean shortWeekDays) {
         this.shortWeekDays = shortWeekDays;
     }
 
-    public void markCircleImage1(Calendar calendar) {
+    public void markCircleImage1(@NonNull Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
         ImageView circleImage1 = getCircleImage1(calendar);
         circleImage1.setVisibility(View.VISIBLE);
         DrawableCompat.setTint(circleImage1.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_circle_1));
     }
 
-    public void markCircleImage2(Calendar calendar) {
+    public void markCircleImage2(@NonNull Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
         ImageView circleImage2 = getCircleImage2(calendar);
         circleImage2.setVisibility(View.VISIBLE);
         DrawableCompat.setTint(circleImage2.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_circle_2));
@@ -410,7 +445,7 @@ public class RobotoCalendarView extends LinearLayout {
     private void markDayAsSelectedDay(Calendar calendar) {
 
         // Clear previous current day mark
-        clearSelectedDay(lastSelectedDayCalendar);
+        clearSelectedDay();
 
         // Store current values as last values
         lastSelectedDayCalendar = calendar;
@@ -430,34 +465,6 @@ public class RobotoCalendarView extends LinearLayout {
 
         if (circleImage2.getVisibility() == VISIBLE) {
             DrawableCompat.setTint(circleImage2.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_selected_day_font));
-        }
-    }
-
-    private void clearSelectedDay(Calendar calendar) {
-        if (calendar != null) {
-
-            ViewGroup dayOfTheMonthBackground = getDayOfMonthBackground(calendar);
-
-            // If it's today, keep the current day style
-            Calendar nowCalendar = Calendar.getInstance();
-            if (nowCalendar.get(Calendar.YEAR) == lastSelectedDayCalendar.get(Calendar.YEAR) && nowCalendar.get(Calendar.DAY_OF_YEAR) == lastSelectedDayCalendar.get(Calendar.DAY_OF_YEAR)) {
-                dayOfTheMonthBackground.setBackgroundResource(R.drawable.ring);
-            } else {
-                dayOfTheMonthBackground.setBackgroundResource(android.R.color.transparent);
-            }
-
-            TextView dayOfTheMonth = getDayOfMonthText(calendar);
-            dayOfTheMonth.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_day_of_the_month_font));
-
-            ImageView circleImage1 = getCircleImage1(calendar);
-            ImageView circleImage2 = getCircleImage2(calendar);
-            if (circleImage1.getVisibility() == VISIBLE) {
-                DrawableCompat.setTint(circleImage1.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_circle_1));
-            }
-
-            if (circleImage2.getVisibility() == VISIBLE) {
-                DrawableCompat.setTint(circleImage2.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_circle_2));
-            }
         }
     }
 
