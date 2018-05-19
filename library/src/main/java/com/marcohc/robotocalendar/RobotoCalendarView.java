@@ -79,7 +79,7 @@ public class RobotoCalendarView extends LinearLayout {
             calendar.set(Calendar.MONTH, currentCalendar.get(Calendar.MONTH));
             calendar.set(Calendar.DAY_OF_MONTH, Integer.valueOf(dayOfTheMonthText.getText().toString()));
 
-            markDayAsSelectedDay(calendar);
+            markDayAsSelectedDay(calendar.getTime());
 
             // Fire event
             if (robotoCalendarListener == null) {
@@ -105,7 +105,7 @@ public class RobotoCalendarView extends LinearLayout {
             calendar.set(Calendar.MONTH, currentCalendar.get(Calendar.MONTH));
             calendar.set(Calendar.DAY_OF_MONTH, Integer.valueOf(dayOfTheMonthText.getText().toString()));
 
-            markDayAsSelectedDay(calendar);
+            markDayAsSelectedDay(calendar.getTime());
 
             // Fire event
             if (robotoCalendarListener == null) {
@@ -183,6 +183,17 @@ public class RobotoCalendarView extends LinearLayout {
         }
     }
 
+    public interface RobotoCalendarListener {
+
+        void onDayClick(Date date);
+
+        void onDayLongClick(Date date);
+
+        void onRightButtonClick();
+
+        void onLeftButtonClick();
+    }
+
     /**
      * Set an specific calendar to the view and update de view
      *
@@ -191,6 +202,34 @@ public class RobotoCalendarView extends LinearLayout {
     public void setDate(@NonNull Date date) {
         currentCalendar.setTime(date);
         updateView();
+    }
+
+    public void markDayAsSelectedDay(@NonNull Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+
+        // Clear previous current day mark
+        clearSelectedDay();
+
+        // Store current values as last values
+        lastSelectedDayCalendar = calendar;
+
+        // Mark current day as selected
+        ViewGroup dayOfTheMonthBackground = getDayOfMonthBackground(calendar);
+        dayOfTheMonthBackground.setBackgroundResource(R.drawable.circle);
+
+        TextView dayOfTheMonth = getDayOfMonthText(calendar);
+        dayOfTheMonth.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_selected_day_font));
+
+        ImageView circleImage1 = getCircleImage1(calendar);
+        ImageView circleImage2 = getCircleImage2(calendar);
+        if (circleImage1.getVisibility() == VISIBLE) {
+            DrawableCompat.setTint(circleImage1.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_selected_day_font));
+        }
+
+        if (circleImage2.getVisibility() == VISIBLE) {
+            DrawableCompat.setTint(circleImage2.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_selected_day_font));
+        }
     }
 
     public void clearSelectedDay() {
@@ -294,34 +333,28 @@ public class RobotoCalendarView extends LinearLayout {
 
     private void setUpEventListeners() {
 
-        leftButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (robotoCalendarListener == null) {
-                    throw new IllegalStateException("You must assign a valid RobotoCalendarListener first!");
-                }
-
-                // Decrease month
-                currentCalendar.add(Calendar.MONTH, -1);
-                lastSelectedDayCalendar = null;
-                updateView();
-                robotoCalendarListener.onLeftButtonClick();
+        leftButton.setOnClickListener(view -> {
+            if (robotoCalendarListener == null) {
+                throw new IllegalStateException("You must assign a valid RobotoCalendarListener first!");
             }
+
+            // Decrease month
+            currentCalendar.add(Calendar.MONTH, -1);
+            lastSelectedDayCalendar = null;
+            updateView();
+            robotoCalendarListener.onLeftButtonClick();
         });
 
-        rightButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (robotoCalendarListener == null) {
-                    throw new IllegalStateException("You must assign a valid RobotoCalendarListener first!");
-                }
-
-                // Increase month
-                currentCalendar.add(Calendar.MONTH, 1);
-                lastSelectedDayCalendar = null;
-                updateView();
-                robotoCalendarListener.onRightButtonClick();
+        rightButton.setOnClickListener(view -> {
+            if (robotoCalendarListener == null) {
+                throw new IllegalStateException("You must assign a valid RobotoCalendarListener first!");
             }
+
+            // Increase month
+            currentCalendar.add(Calendar.MONTH, 1);
+            lastSelectedDayCalendar = null;
+            updateView();
+            robotoCalendarListener.onRightButtonClick();
         });
     }
 
@@ -442,32 +475,6 @@ public class RobotoCalendarView extends LinearLayout {
         }
     }
 
-    private void markDayAsSelectedDay(Calendar calendar) {
-
-        // Clear previous current day mark
-        clearSelectedDay();
-
-        // Store current values as last values
-        lastSelectedDayCalendar = calendar;
-
-        // Mark current day as selected
-        ViewGroup dayOfTheMonthBackground = getDayOfMonthBackground(calendar);
-        dayOfTheMonthBackground.setBackgroundResource(R.drawable.circle);
-
-        TextView dayOfTheMonth = getDayOfMonthText(calendar);
-        dayOfTheMonth.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_selected_day_font));
-
-        ImageView circleImage1 = getCircleImage1(calendar);
-        ImageView circleImage2 = getCircleImage2(calendar);
-        if (circleImage1.getVisibility() == VISIBLE) {
-            DrawableCompat.setTint(circleImage1.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_selected_day_font));
-        }
-
-        if (circleImage2.getVisibility() == VISIBLE) {
-            DrawableCompat.setTint(circleImage2.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_selected_day_font));
-        }
-    }
-
     private void updateView() {
         setUpMonthLayout();
         setUpWeekDaysLayout();
@@ -495,17 +502,6 @@ public class RobotoCalendarView extends LinearLayout {
     private View getView(String key, Calendar currentCalendar) {
         int index = getDayIndexByDate(currentCalendar);
         return rootView.findViewWithTag(key + index);
-    }
-
-    public interface RobotoCalendarListener {
-
-        void onDayClick(Date date);
-
-        void onDayLongClick(Date date);
-
-        void onRightButtonClick();
-
-        void onLeftButtonClick();
     }
 
 }
