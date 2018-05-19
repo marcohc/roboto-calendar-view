@@ -183,15 +183,8 @@ public class RobotoCalendarView extends LinearLayout {
         }
     }
 
-    public interface RobotoCalendarListener {
-
-        void onDayClick(Date date);
-
-        void onDayLongClick(Date date);
-
-        void onRightButtonClick();
-
-        void onLeftButtonClick();
+    public static boolean areInTheSameDay(@NonNull Calendar calendarOne, @NonNull Calendar calendarTwo) {
+        return calendarOne.get(Calendar.YEAR) == calendarTwo.get(Calendar.YEAR) && calendarOne.get(Calendar.DAY_OF_YEAR) == calendarTwo.get(Calendar.DAY_OF_YEAR);
     }
 
     /**
@@ -268,7 +261,11 @@ public class RobotoCalendarView extends LinearLayout {
         calendar.setTime(date);
         ImageView circleImage1 = getCircleImage1(calendar);
         circleImage1.setVisibility(View.VISIBLE);
-        DrawableCompat.setTint(circleImage1.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_circle_1));
+        if (lastSelectedDayCalendar != null && areInTheSameDay(calendar, lastSelectedDayCalendar)) {
+            DrawableCompat.setTint(circleImage1.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_selected_day_font));
+        } else {
+            DrawableCompat.setTint(circleImage1.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_circle_1));
+        }
     }
 
     public void markCircleImage2(@NonNull Date date) {
@@ -276,7 +273,11 @@ public class RobotoCalendarView extends LinearLayout {
         calendar.setTime(date);
         ImageView circleImage2 = getCircleImage2(calendar);
         circleImage2.setVisibility(View.VISIBLE);
-        DrawableCompat.setTint(circleImage2.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_circle_2));
+        if (lastSelectedDayCalendar != null && areInTheSameDay(calendar, lastSelectedDayCalendar)) {
+            DrawableCompat.setTint(circleImage2.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_selected_day_font));
+        } else {
+            DrawableCompat.setTint(circleImage2.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_circle_2));
+        }
     }
 
     public void showDateTitle(boolean show) {
@@ -502,6 +503,17 @@ public class RobotoCalendarView extends LinearLayout {
     private View getView(String key, Calendar currentCalendar) {
         int index = getDayIndexByDate(currentCalendar);
         return rootView.findViewWithTag(key + index);
+    }
+
+    public interface RobotoCalendarListener {
+
+        void onDayClick(Date date);
+
+        void onDayLongClick(Date date);
+
+        void onRightButtonClick();
+
+        void onLeftButtonClick();
     }
 
 }
