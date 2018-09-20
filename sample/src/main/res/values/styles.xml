@@ -8,26 +8,25 @@
     </style>
 
     <style name="RobotoCalendarMonthText">
-        <item name="android:textSize">22sp</item>
-        <item name="android:textColor">#695939</item>
-        <item name="fontPath">fonts/Roboto-Light.ttf</item>
-        <item name="android:textStyle">italic</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#4F4F4F</item>
+        <item name="fontPath">fonts/Cabin-Regular.ttf</item>
     </style>
 
     <style name="RobotoCalendarMonthArrow">
-        <item name="android:tint">#FACBFD</item>
+        <item name="android:tint">#4F4F4F</item>
     </style>
 
     <style name="RobotoCalendarDayOfTheWeekText">
-        <item name="android:textSize">@dimen/roboto_calendar_day_of_week_font</item>
-        <item name="android:textColor">#1230FF</item>
-        <item name="fontPath">fonts/Roboto-Medium.ttf</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#4F4F4F</item>
+        <item name="fontPath">fonts/Cabin-Regular.ttf</item>
     </style>
 
     <style name="RobotoCalendarDayOfTheMonthText">
-        <item name="android:textSize">@dimen/roboto_calendar_day_of_the_month_font</item>
-        <item name="android:textColor">@color/roboto_calendar_day_of_the_month_font</item>
-        <item name="fontPath">fonts/Roboto-Light.ttf</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#4F4F4F</item>
+        <item name="fontPath">fonts/Cabin-Bold.ttf</item>
     </style>
 
 </resources>

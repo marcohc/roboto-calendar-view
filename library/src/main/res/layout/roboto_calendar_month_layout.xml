@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/robotoCalendarDateTitleContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:clickable="true">
-
-    <ImageView
-        android:id="@+id/rightButton"
-        style="@style/RobotoCalendarMonthArrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/roboto_calendar_padding"
-        android:layout_marginRight="@dimen/roboto_calendar_padding"
-        app:srcCompat="@drawable/ic_arrow_right" />
-
-    <TextView
-        android:id="@+id/monthText"
-        style="@style/RobotoCalendarMonthText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="false"
-        android:layout_centerInParent="true"
-        android:tag="dateTitle"
-        android:text="MONTH YEAR"
-        android:textAllCaps="true" />
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/leftButton"
         style="@style/RobotoCalendarMonthArrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/roboto_calendar_padding"
         android:layout_marginRight="@dimen/roboto_calendar_padding"
-        app:srcCompat="@drawable/ic_arrow_left" />
+        app:srcCompat="@drawable/ic_arrow_left"
+        tools:ignore="ContentDescription" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/monthText"
+        style="@style/RobotoCalendarMonthText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:tag="dateTitle"
+        tools:text="September 2018" />
+
+    <ImageView
+        android:id="@+id/rightButton"
+        style="@style/RobotoCalendarMonthArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/roboto_calendar_padding"
+        android:layout_marginRight="@dimen/roboto_calendar_padding"
+        app:srcCompat="@drawable/ic_arrow_right"
+        tools:ignore="ContentDescription" />
+</LinearLayout>
