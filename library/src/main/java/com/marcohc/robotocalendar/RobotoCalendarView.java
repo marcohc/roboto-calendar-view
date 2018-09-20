@@ -17,8 +17,10 @@ package com.marcohc.robotocalendar;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
@@ -50,8 +52,6 @@ public class RobotoCalendarView extends LinearLayout {
     private static final String DAY_OF_THE_MONTH_BACKGROUND = "dayOfTheMonthBackground";
     private static final String DAY_OF_THE_MONTH_CIRCLE_IMAGE_1 = "dayOfTheMonthCircleImage1";
     private static final String DAY_OF_THE_MONTH_CIRCLE_IMAGE_2 = "dayOfTheMonthCircleImage2";
-
-    private final Context context;
 
     private TextView dateTitle;
     private ImageView leftButton;
@@ -120,17 +120,43 @@ public class RobotoCalendarView extends LinearLayout {
 
     public RobotoCalendarView(Context context) {
         super(context);
-        this.context = context;
-        onCreateView();
+        init(null);
     }
 
-    public RobotoCalendarView(Context context, AttributeSet attrs) {
+    public RobotoCalendarView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        this.context = context;
+        init(attrs);
+    }
+
+    public RobotoCalendarView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init(attrs);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    public RobotoCalendarView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+        init(attrs);
+    }
+
+    private void init(@Nullable AttributeSet set) {
+
         if (isInEditMode()) {
             return;
         }
-        onCreateView();
+
+        LayoutInflater inflate = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        rootView = inflate.inflate(R.layout.roboto_calendar_view_layout, this, true);
+        findViewsById(rootView);
+        setUpEventListeners();
+
+        currentCalendar = Calendar.getInstance();
+        setDate(currentCalendar.getTime());
+
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                                              .setFontAttrId(R.attr.fontPath)
+                                              .build()
+        );
     }
 
     private static String checkSpecificLocales(String dayOfTheWeekString, int i) {
@@ -212,16 +238,16 @@ public class RobotoCalendarView extends LinearLayout {
         dayOfTheMonthBackground.setBackgroundResource(R.drawable.circle);
 
         TextView dayOfTheMonth = getDayOfMonthText(calendar);
-        dayOfTheMonth.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_selected_day_font));
+        dayOfTheMonth.setTextColor(ContextCompat.getColor(getContext(), R.color.roboto_calendar_selected_day_font));
 
         ImageView circleImage1 = getCircleImage1(calendar);
         ImageView circleImage2 = getCircleImage2(calendar);
         if (circleImage1.getVisibility() == VISIBLE) {
-            DrawableCompat.setTint(circleImage1.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_selected_day_font));
+            DrawableCompat.setTint(circleImage1.getDrawable(), ContextCompat.getColor(getContext(), R.color.roboto_calendar_selected_day_font));
         }
 
         if (circleImage2.getVisibility() == VISIBLE) {
-            DrawableCompat.setTint(circleImage2.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_selected_day_font));
+            DrawableCompat.setTint(circleImage2.getDrawable(), ContextCompat.getColor(getContext(), R.color.roboto_calendar_selected_day_font));
         }
     }
 
@@ -238,16 +264,16 @@ public class RobotoCalendarView extends LinearLayout {
             }
 
             TextView dayOfTheMonth = getDayOfMonthText(lastSelectedDayCalendar);
-            dayOfTheMonth.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_day_of_the_month_font));
+            dayOfTheMonth.setTextColor(ContextCompat.getColor(getContext(), R.color.roboto_calendar_day_of_the_month_font));
 
             ImageView circleImage1 = getCircleImage1(lastSelectedDayCalendar);
             ImageView circleImage2 = getCircleImage2(lastSelectedDayCalendar);
             if (circleImage1.getVisibility() == VISIBLE) {
-                DrawableCompat.setTint(circleImage1.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_circle_1));
+                DrawableCompat.setTint(circleImage1.getDrawable(), ContextCompat.getColor(getContext(), R.color.roboto_calendar_circle_1));
             }
 
             if (circleImage2.getVisibility() == VISIBLE) {
-                DrawableCompat.setTint(circleImage2.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_circle_2));
+                DrawableCompat.setTint(circleImage2.getDrawable(), ContextCompat.getColor(getContext(), R.color.roboto_calendar_circle_2));
             }
         }
     }
@@ -262,9 +288,9 @@ public class RobotoCalendarView extends LinearLayout {
         ImageView circleImage1 = getCircleImage1(calendar);
         circleImage1.setVisibility(View.VISIBLE);
         if (lastSelectedDayCalendar != null && areInTheSameDay(calendar, lastSelectedDayCalendar)) {
-            DrawableCompat.setTint(circleImage1.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_selected_day_font));
+            DrawableCompat.setTint(circleImage1.getDrawable(), ContextCompat.getColor(getContext(), R.color.roboto_calendar_selected_day_font));
         } else {
-            DrawableCompat.setTint(circleImage1.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_circle_1));
+            DrawableCompat.setTint(circleImage1.getDrawable(), ContextCompat.getColor(getContext(), R.color.roboto_calendar_circle_1));
         }
     }
 
@@ -274,9 +300,9 @@ public class RobotoCalendarView extends LinearLayout {
         ImageView circleImage2 = getCircleImage2(calendar);
         circleImage2.setVisibility(View.VISIBLE);
         if (lastSelectedDayCalendar != null && areInTheSameDay(calendar, lastSelectedDayCalendar)) {
-            DrawableCompat.setTint(circleImage2.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_selected_day_font));
+            DrawableCompat.setTint(circleImage2.getDrawable(), ContextCompat.getColor(getContext(), R.color.roboto_calendar_selected_day_font));
         } else {
-            DrawableCompat.setTint(circleImage2.getDrawable(), ContextCompat.getColor(context, R.color.roboto_calendar_circle_2));
+            DrawableCompat.setTint(circleImage2.getDrawable(), ContextCompat.getColor(getContext(), R.color.roboto_calendar_circle_2));
         }
     }
 
@@ -292,14 +318,6 @@ public class RobotoCalendarView extends LinearLayout {
         this.robotoCalendarListener = robotoCalendarListener;
     }
 
-    private void onCreateView() {
-        LayoutInflater inflate = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        rootView = inflate.inflate(R.layout.roboto_calendar_picker_layout, this, true);
-        findViewsById(rootView);
-        setUpEventListeners();
-        setUpCalligraphy();
-    }
-
     private void findViewsById(View view) {
 
         robotoCalendarMonthLayout = view.findViewById(R.id.robotoCalendarDateTitleContainer);
@@ -307,7 +325,7 @@ public class RobotoCalendarView extends LinearLayout {
         rightButton = view.findViewById(R.id.rightButton);
         dateTitle = view.findViewById(R.id.monthText);
 
-        LayoutInflater inflate = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflate = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         for (int i = 0; i < 42; i++) {
 
             int weekIndex = (i % 7) + 1;
@@ -357,16 +375,6 @@ public class RobotoCalendarView extends LinearLayout {
             updateView();
             robotoCalendarListener.onRightButtonClick();
         });
-    }
-
-    private void setUpCalligraphy() {
-        // Initialize calendar for current month
-        currentCalendar = Calendar.getInstance();
-        setDate(currentCalendar.getTime());
-        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                                              .setFontAttrId(R.attr.fontPath)
-                                              .build()
-        );
     }
 
     private void setUpMonthLayout() {
@@ -421,7 +429,7 @@ public class RobotoCalendarView extends LinearLayout {
             // Apply styles
             dayOfTheMonthText.setBackgroundResource(android.R.color.transparent);
             dayOfTheMonthText.setTypeface(null, Typeface.NORMAL);
-            dayOfTheMonthText.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_day_of_the_month_font));
+            dayOfTheMonthText.setTextColor(ContextCompat.getColor(getContext(), R.color.roboto_calendar_day_of_the_month_font));
             dayOfTheMonthContainer.setBackgroundResource(android.R.color.transparent);
             dayOfTheMonthContainer.setOnClickListener(null);
             dayOfTheMonthBackground.setBackgroundResource(android.R.color.transparent);

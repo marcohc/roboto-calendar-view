@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/daysContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -20,7 +21,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:tag="dayOfTheWeekText1"
-            android:text="Mon" />
+            tools:text="Mon" />
 
     </LinearLayout>
 
@@ -38,7 +39,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:tag="dayOfTheWeekText2"
-            android:text="Tue" />
+            tools:text="Tue" />
 
     </LinearLayout>
 
@@ -56,7 +57,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:tag="dayOfTheWeekText3"
-            android:text="Wed" />
+            tools:text="Wed" />
 
     </LinearLayout>
 
@@ -74,7 +75,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:tag="dayOfTheWeekText4"
-            android:text="Thu" />
+            tools:text="Thu" />
 
     </LinearLayout>
 
@@ -92,7 +93,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:tag="dayOfTheWeekText5"
-            android:text="Fri" />
+            tools:text="Fri" />
 
     </LinearLayout>
 
@@ -110,7 +111,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:tag="dayOfTheWeekText6"
-            android:text="Sat" />
+            tools:text="Sat" />
 
     </LinearLayout>
 
@@ -128,8 +129,6 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:tag="dayOfTheWeekText7"
-            android:text="Sun" />
-
+            tools:text="Sun" />
     </LinearLayout>
-
 </LinearLayout>

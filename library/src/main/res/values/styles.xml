@@ -8,6 +8,7 @@
     </style>
 
     <style name="RobotoCalendarMonthText">
+        <item name="fontPath">fonts/OverrideThisWithYourFontPath</item>
         <item name="android:textSize">@dimen/roboto_calendar_month_font</item>
         <item name="android:textColor">@color/roboto_calendar_month_font</item>
     </style>
@@ -17,11 +18,13 @@
     </style>
 
     <style name="RobotoCalendarDayOfTheWeekText">
+        <item name="fontPath">fonts/OverrideThisWithYourFontPath</item>
         <item name="android:textSize">@dimen/roboto_calendar_day_of_week_font</item>
         <item name="android:textColor">@color/roboto_calendar_day_of_the_month_font</item>
     </style>
 
     <style name="RobotoCalendarDayOfTheMonthText">
+        <item name="fontPath">fonts/OverrideThisWithYourFontPath</item>
         <item name="android:textSize">@dimen/roboto_calendar_day_of_the_month_font</item>
         <item name="android:textColor">@color/roboto_calendar_day_of_the_month_font</item>
     </style>
