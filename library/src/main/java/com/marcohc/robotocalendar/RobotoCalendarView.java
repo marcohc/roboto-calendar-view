@@ -139,26 +139,6 @@ public class RobotoCalendarView extends LinearLayout {
         init(attrs);
     }
 
-    private void init(@Nullable AttributeSet set) {
-
-        if (isInEditMode()) {
-            return;
-        }
-
-        LayoutInflater inflate = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        rootView = inflate.inflate(R.layout.roboto_calendar_view_layout, this, true);
-        findViewsById(rootView);
-        setUpEventListeners();
-
-        currentCalendar = Calendar.getInstance();
-        setDate(currentCalendar.getTime());
-
-        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                                              .setFontAttrId(R.attr.fontPath)
-                                              .build()
-        );
-    }
-
     private static String checkSpecificLocales(String dayOfTheWeekString, int i) {
         // Set Wednesday as "X" in Spanish Locale.getDefault()
         if (i == 4 && "ES".equals(Locale.getDefault().getCountry())) {
@@ -209,8 +189,28 @@ public class RobotoCalendarView extends LinearLayout {
         }
     }
 
-    public static boolean areInTheSameDay(@NonNull Calendar calendarOne, @NonNull Calendar calendarTwo) {
+    private static boolean areInTheSameDay(@NonNull Calendar calendarOne, @NonNull Calendar calendarTwo) {
         return calendarOne.get(Calendar.YEAR) == calendarTwo.get(Calendar.YEAR) && calendarOne.get(Calendar.DAY_OF_YEAR) == calendarTwo.get(Calendar.DAY_OF_YEAR);
+    }
+
+    private void init(@Nullable AttributeSet set) {
+
+        if (isInEditMode()) {
+            return;
+        }
+
+        LayoutInflater inflate = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        rootView = inflate.inflate(R.layout.roboto_calendar_view_layout, this, true);
+        findViewsById(rootView);
+        setUpEventListeners();
+
+        currentCalendar = Calendar.getInstance();
+        setDate(currentCalendar.getTime());
+
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                                              .setFontAttrId(R.attr.fontPath)
+                                              .build()
+        );
     }
 
     /**
@@ -221,6 +221,16 @@ public class RobotoCalendarView extends LinearLayout {
     public void setDate(@NonNull Date date) {
         currentCalendar.setTime(date);
         updateView();
+    }
+
+    @NonNull
+    public Date getDate() {
+        return currentCalendar.getTime();
+    }
+
+    @Nullable
+    public Date getSelectedDay() {
+        return lastSelectedDayCalendar.getTime();
     }
 
     public void markDayAsSelectedDay(@NonNull Date date) {
