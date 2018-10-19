@@ -36,7 +36,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import io.github.inflationx.calligraphy3.CalligraphyConfig;
+import io.github.inflationx.calligraphy3.CalligraphyInterceptor;
+import io.github.inflationx.viewpump.ViewPump;
 
 /**
  * The roboto calendar view
@@ -207,10 +209,12 @@ public class RobotoCalendarView extends LinearLayout {
         currentCalendar = Calendar.getInstance();
         setDate(currentCalendar.getTime());
 
-        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+        ViewPump.init(ViewPump.builder()
+                              .addInterceptor(new CalligraphyInterceptor(
+                                      new CalligraphyConfig.Builder()
                                               .setFontAttrId(R.attr.fontPath)
-                                              .build()
-        );
+                                              .build()))
+                              .build());
     }
 
     /**
