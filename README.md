@@ -42,11 +42,6 @@ And then add the library in your specific project build.gradle:
 ``` xml
     compile 'com.github.marcohc:robotocalendarview:<last_release>'
 ```
-
-Developed By
-------------
-
-* Marco Hernaiz Cao - <marcohernaizcao@gmail.com>
  
 Credits
 -------
@@ -56,7 +51,7 @@ Credits
 License
 -------
 
-    Copyright 2015 Marco Hernaiz Cao
+    Copyright 2015
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
