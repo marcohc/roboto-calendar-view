@@ -7,8 +7,8 @@ ext.versions = [
                 packageName: "com.marcohc.robotocalendar"
         ],
         app    : [
-                code   : 2,
-                version: "4.0.0",
+                code   : 1,
+                version: "4.0.1",
         ],
 ]
 

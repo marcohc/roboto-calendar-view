@@ -13,16 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.marcohc.robotocalendar.sample;
+package com.marcohc.robotocalendarview.sample;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.marcohc.robotocalendar.RobotoCalendarView;
-import com.marcohc.robotocalendar.RobotoCalendarView.RobotoCalendarListener;
-import com.marcohc.robotocalendarsample.R;
+import com.marcohc.robotocalendarview.RobotoCalendarView;
+import com.marcohc.robotocalendarview.RobotoCalendarView.RobotoCalendarListener;
 
 import java.util.Calendar;
 import java.util.Date;

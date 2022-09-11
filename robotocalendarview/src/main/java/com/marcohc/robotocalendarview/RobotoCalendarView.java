@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.marcohc.robotocalendar;
+package com.marcohc.robotocalendarview;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -28,6 +28,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.material.color.MaterialColors;
+import com.marcohc.robotocalendarview.R;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

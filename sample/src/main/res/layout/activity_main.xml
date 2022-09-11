@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.marcohc.robotocalendar.RobotoCalendarView
+    <com.marcohc.robotocalendarview.RobotoCalendarView
         android:id="@+id/robotoCalendarPicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
