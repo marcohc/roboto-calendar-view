@@ -1,0 +1,25 @@
+ext.versions = [
+        android: [
+                minSdk     : 23,
+                compileSdk : 32,
+                targetSdk  : 32,
+                buildTools : "30.0.3",
+                packageName: "com.marcohc.robotocalendar"
+        ],
+        app    : [
+                code   : 2,
+                version: "4.0.0",
+        ],
+]
+
+ext.gradlePlugins = [
+        gradle: "com.android.tools.build:gradle:7.2.1",
+]
+
+ext.libraries = [
+        appCompat           : "androidx.appcompat:appcompat:1.4.2",
+        calligraphy         : "io.github.inflationx:calligraphy3:3.1.1",
+        calligraphyViewPump : "io.github.inflationx:viewpump:2.0.3",
+        jetbrainsAnnotations: "org.jetbrains:annotations:23.0.0",
+        material            : "com.google.android.material:material:1.6.1",
+]

@@ -1,9 +1,9 @@
-apply from: "../config/android-application.gradle"
+apply from: "../config/android-library.gradle"
 
 dependencies {
+    implementation libraries.appCompat
     implementation libraries.calligraphy
     implementation libraries.calligraphyViewPump
+    implementation libraries.jetbrainsAnnotations
     implementation libraries.material
-
-    implementation project(':robotocalendarview')
 }

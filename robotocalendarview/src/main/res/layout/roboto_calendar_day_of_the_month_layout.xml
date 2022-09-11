@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_gravity="center_vertical"
     android:layout_weight="1"
     android:tag="dayOfTheMonthLayout">
@@ -13,17 +14,18 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:background="@drawable/circle"
-        android:tag="dayOfTheMonthBackground">
+        android:tag="dayOfTheMonthBackground"
+        tools:ignore="UselessParent">
 
         <TextView
             android:id="@+id/textView"
             style="@style/RobotoCalendarDayOfTheMonthText"
-            tools:text="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:tag="dayOfTheMonthText" />
+            android:tag="dayOfTheMonthText"
+            tools:text="1" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,16 +42,18 @@
                 android:layout_height="@dimen/roboto_calendar_circle_size"
                 android:src="@drawable/circle"
                 android:tag="dayOfTheMonthCircleImage1"
-                android:tint="@color/roboto_calendar_circle_1"
-                android:visibility="visible" />
+                android:visibility="visible"
+                app:tint="?attr/roboto_calendar_view_circle_1"
+                tools:ignore="ContentDescription" />
 
             <ImageView
                 android:layout_width="@dimen/roboto_calendar_circle_size"
                 android:layout_height="@dimen/roboto_calendar_circle_size"
                 android:src="@drawable/circle"
                 android:tag="dayOfTheMonthCircleImage2"
-                android:tint="@color/roboto_calendar_circle_2"
-                android:visibility="visible" />
+                android:visibility="visible"
+                app:tint="?attr/roboto_calendar_view_circle_2"
+                tools:ignore="ContentDescription" />
         </LinearLayout>
     </RelativeLayout>
 </RelativeLayout>

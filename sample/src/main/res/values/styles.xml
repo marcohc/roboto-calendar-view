@@ -1,31 +1,27 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="AppBaseTheme" parent="android:Theme.Light" />
-
     <!-- Application theme. -->
-    <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    <style name="AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="roboto_calendar_view_background_color">?android:attr/colorBackground</item>
+        <item name="roboto_calendar_view_month_text_color">?attr/colorOnBackground</item>
+        <item name="roboto_calendar_view_selected_day_text_color">#FFFFFF</item>
+        <item name="roboto_calendar_view_selected_day_background_color">#20BEB2</item>
+        <item name="roboto_calendar_view_current_day_ring">#CCCCCC</item>
+        <item name="roboto_calendar_view_day_of_the_month_text_color">?attr/colorOnBackground</item>
+        <item name="roboto_calendar_view_circle_1">#EB5757</item>
+        <item name="roboto_calendar_view_circle_2">#55c6da</item>
+        <item name="roboto_calendar_view_month_arrow">?attr/colorOnBackground</item>
     </style>
 
     <style name="RobotoCalendarMonthText">
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">#4F4F4F</item>
         <item name="fontPath">fonts/Cabin-Regular.ttf</item>
     </style>
 
-    <style name="RobotoCalendarMonthArrow">
-        <item name="android:tint">#4F4F4F</item>
-    </style>
-
     <style name="RobotoCalendarDayOfTheWeekText">
-        <item name="android:textSize">12sp</item>
-        <item name="android:textColor">#4F4F4F</item>
         <item name="fontPath">fonts/Cabin-Regular.ttf</item>
     </style>
 
     <style name="RobotoCalendarDayOfTheMonthText">
-        <item name="android:textSize">12sp</item>
-        <item name="android:textColor">#4F4F4F</item>
         <item name="fontPath">fonts/Cabin-Bold.ttf</item>
     </style>
 

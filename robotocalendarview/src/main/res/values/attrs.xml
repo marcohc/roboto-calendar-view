@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="roboto_calendar_view_background_color" format="color" />
+    <attr name="roboto_calendar_view_month_text_color" format="color" />
+    <attr name="roboto_calendar_view_selected_day_text_color" format="color" />
+    <attr name="roboto_calendar_view_selected_day_background_color" format="color" />
+    <attr name="roboto_calendar_view_current_day_ring" format="color" />
+    <attr name="roboto_calendar_view_day_of_the_month_text_color" format="color" />
+    <attr name="roboto_calendar_view_circle_1" format="color" />
+    <attr name="roboto_calendar_view_circle_2" format="color" />
+    <attr name="roboto_calendar_view_month_arrow" format="color" />
+</resources>

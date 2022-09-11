@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/roboto_calendar_background"
+    android:background="?attr/roboto_calendar_view_background_color"
     android:orientation="vertical"
     android:padding="@dimen/roboto_calendar_padding">
 

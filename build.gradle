@@ -1,33 +1,20 @@
 buildscript {
 
+    apply from: 'config/dependencies.gradle'
+
     repositories {
-        jcenter()
         mavenCentral()
         google()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+        classpath gradlePlugins.gradle
     }
 }
 
 allprojects {
-
-    ext {
-        androidApplicationId = 'com.marcohc.robotocalendar'
-        androidBuildToolsVersion = "28.0.3"
-        androidMinSdkVersion = 14
-        androidTargetSdkVersion = 28
-        androidCompileSdkVersion = 28
-        androidVersionCode = 1
-        androidVersionName = "3.6.1"
-    }
-
     repositories {
-        jcenter()
         mavenCentral()
-        maven { url "https://jitpack.io" }
         google()
     }
 }

@@ -1,0 +1,21 @@
+apply plugin: "com.android.application"
+
+android {
+
+    buildToolsVersion versions.android.buildTools
+    compileSdkVersion versions.android.compileSdk
+
+    compileOptions {
+        encoding "UTF-8"
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        targetSdkVersion versions.android.targetSdk
+        minSdkVersion versions.android.minSdk
+        applicationId versions.app.packageName
+        versionCode versions.app.code
+        versionName versions.app.version
+    }
+}

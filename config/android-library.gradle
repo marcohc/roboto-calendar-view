@@ -1,0 +1,39 @@
+apply plugin: "com.android.library"
+
+apply from: "../config/publishToMavenLocal.gradle"
+
+android {
+
+    buildToolsVersion versions.android.buildTools
+    compileSdkVersion versions.android.compileSdk
+
+    compileOptions {
+        encoding "UTF-8"
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        targetSdkVersion versions.android.targetSdk
+        minSdkVersion versions.android.minSdk
+    }
+
+    lintOptions {
+        abortOnError true
+        checkAllWarnings true
+        warningsAsErrors true
+        checkReleaseBuilds false
+        ignoreWarnings false
+        quiet true
+    }
+
+//    sourceSets {
+//        androidTest.java.srcDirs += "src/androidTest/kotlin"
+//        main.java.srcDirs += "src/main/kotlin"
+//        test.java.srcDirs += "src/test/kotlin"
+//    }
+}
+
+dependencies {
+//    implementation(libraries.kotlin) { exclude group: 'org.jetbrains' }
+}

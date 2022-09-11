@@ -17,7 +17,6 @@ package com.marcohc.robotocalendar.sample;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -29,13 +28,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+import androidx.appcompat.app.AppCompatActivity;
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
-/**
- * Sample Activity
- *
- * @author Marco Hernaiz Cao
- */
 public class MainActivity extends AppCompatActivity implements RobotoCalendarListener {
 
     private RobotoCalendarView robotoCalendarView;
@@ -85,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements RobotoCalendarLis
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
     @Override

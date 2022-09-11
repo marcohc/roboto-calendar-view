@@ -1,32 +1,30 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="AppBaseTheme" parent="android:Theme.Light" />
-
     <!-- Application theme. -->
-    <style name="AppTheme" parent="AppBaseTheme">
+    <style name="AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
     <style name="RobotoCalendarMonthText">
         <item name="fontPath">fonts/OverrideThisWithYourFontPath</item>
         <item name="android:textSize">@dimen/roboto_calendar_month_font</item>
-        <item name="android:textColor">@color/roboto_calendar_month_font</item>
+        <item name="android:textColor">?attr/roboto_calendar_view_month_text_color</item>
     </style>
 
     <style name="RobotoCalendarMonthArrow">
-        <item name="android:tint">@color/roboto_calendar_month_arrow</item>
+        <item name="android:tint">?attr/roboto_calendar_view_month_arrow</item>
     </style>
 
     <style name="RobotoCalendarDayOfTheWeekText">
         <item name="fontPath">fonts/OverrideThisWithYourFontPath</item>
         <item name="android:textSize">@dimen/roboto_calendar_day_of_week_font</item>
-        <item name="android:textColor">@color/roboto_calendar_day_of_the_month_font</item>
+        <item name="android:textColor">?attr/roboto_calendar_view_day_of_the_month_text_color</item>
     </style>
 
     <style name="RobotoCalendarDayOfTheMonthText">
         <item name="fontPath">fonts/OverrideThisWithYourFontPath</item>
         <item name="android:textSize">@dimen/roboto_calendar_day_of_the_month_font</item>
-        <item name="android:textColor">@color/roboto_calendar_day_of_the_month_font</item>
+        <item name="android:textColor">@attr/roboto_calendar_view_day_of_the_month_text_color</item>
     </style>
 
 </resources>
